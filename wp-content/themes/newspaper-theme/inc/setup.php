@@ -1,6 +1,6 @@
 <?php
 
-add_action(  'wp_enqueue_styles', 'theme_styles' );
+add_action(  'wp_enqueue_scripts', 'theme_styles' );
 function theme_styles() {
     wp_enqueue_style( 'style' , get_template_directory_uri() . '/style.css' );
     wp_enqueue_style( 'app-style' , get_template_directory_uri() . '/assets/css/app.css' );
@@ -9,7 +9,7 @@ function theme_styles() {
 add_action(  'wp_enqueue_scripts', 'theme_scripts' );
 function theme_scripts() {
     wp_enqueue_script( 'main-script', get_template_directory_uri() . '/assets/js/app.js', ['jquery'], false, true );
-//    wp_localize_script( 'main-script', 'my-ajax', ['ajaxurl' => admin_url('admin-ajax.php')] );
+    //wp_localize_script( 'main-script', 'my-ajax', ['ajaxurl' => admin_url('admin-ajax.php')] );
 }
 
 if (!function_exists('dd')) {
@@ -31,3 +31,11 @@ function upload_allow_types($mimes)
 
     return $mimes;
 }
+
+add_action( 'after_setup_theme', function() {
+
+    register_nav_menus( [
+        'main_header' => 'Main Header',
+    ] );
+
+} );
