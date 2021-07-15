@@ -41,7 +41,7 @@ add_action( 'after_setup_theme', function() {
 
 } );
 
-add_theme_support( 'post-thumbnails' );
+add_theme_support( 'post-thumbnails', ['news', 'authors'] );
 
 if (function_exists('acf_add_options_page')) {
     acf_add_options_page(array(
@@ -51,4 +51,10 @@ if (function_exists('acf_add_options_page')) {
         'capability' => 'edit_posts',
         'redirect' => false
     ));
+}
+
+add_action( 'admin_menu', 'remove_default_post_types' );
+function remove_default_post_types() {
+    remove_menu_page( 'edit.php' );
+    remove_menu_page( 'edit-comments.php' );
 }

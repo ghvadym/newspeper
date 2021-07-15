@@ -1,0 +1,50 @@
+.aside {
+  flex: 0 0 250px;
+  position: sticky;
+  top: 0;
+
+  .post {
+    &__item {
+
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+
+      &:hover {
+        .post__thumb {
+          img {
+            filter: brightness(0.8);
+          }
+        }
+      }
+
+      overflow: hidden;
+      border-radius: 5px;
+    }
+
+    &__body {
+      text-decoration: none;
+    }
+
+    &__thumb {
+      height: 200px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        background: floralwhite;
+      }
+    }
+
+    &__title {
+      background: rgba(255,255,255,1);
+      padding: 10px;
+
+      span {
+        color: $font-color;
+        line-height: 1.5rem;
+      }
+    }
+  }
+}

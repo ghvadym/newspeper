@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0; }
 
-.background, body.home {
+.background {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -18,15 +18,9 @@ body {
   font-family: "Merri Regular", sans-serif;
   font-size: 16px; }
   body.home {
-    background-image: url("../../assets/images/ios_wallpaper.jpg");
-    background-position: right; }
+    background: #cacace; }
   body .logged-in #header {
     top: 32px; }
-
-.container {
-  max-width: 1280px;
-  width: 100%;
-  margin: 0 auto; }
 
 ul,
 ol {
@@ -56,6 +50,19 @@ h2 {
 
 h3 {
   font-size: 1.3rem; }
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 70px 20px; }
+
+.flex-center, .article__head {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
 
 .row {
   display: flex;
@@ -116,3 +123,56 @@ h3 {
   .col-sm-3 {
     flex: 0 0 24%;
     max-width: 24%; } }
+
+.aside {
+  flex: 0 0 250px;
+  position: sticky;
+  top: 0; }
+  .aside .post__item {
+    overflow: hidden;
+    border-radius: 5px; }
+    .aside .post__item:not(:last-child) {
+      margin-bottom: 20px; }
+    .aside .post__item:hover .post__thumb img {
+      -webkit-filter: brightness(0.8);
+      filter: brightness(0.8); }
+  .aside .post__body {
+    text-decoration: none; }
+  .aside .post__thumb {
+    height: 200px; }
+    .aside .post__thumb img {
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
+      background: floralwhite; }
+  .aside .post__title {
+    background: white;
+    padding: 10px; }
+    .aside .post__title span {
+      color: black;
+      line-height: 1.5rem; }
+
+.article {
+  flex: 1 1 100%;
+  padding: 0 30px;
+  margin-right: 30px; }
+  .article__head {
+    background: #15150d;
+    color: white;
+    border-radius: 5px;
+    min-height: 400px;
+    text-align: center; }
+  .article__body {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(-135deg, #a137bc 0%, #d83c48 100%);
+    max-width: 600px;
+    margin: -80px auto 0 auto;
+    border-radius: 5px;
+    padding: 20px 0; }
+    .article__body > * {
+      flex: 1 1 50%;
+      padding: 0 20px; }
+  .article__subtitle {
+    text-align: right; }
