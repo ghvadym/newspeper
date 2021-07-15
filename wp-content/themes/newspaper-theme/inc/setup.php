@@ -26,8 +26,9 @@ if (!function_exists('dd')) {
 add_filter('upload_mimes', 'upload_allow_types');
 function upload_allow_types($mimes)
 {
-    $mimes['svg'] = 'image/svg+xml';
-    $mimes['webp'] = 'image/webp';
+    $mimes['svg']      = 'image/svg+xml';
+    $mimes['webp']     = 'image/webp';
+    $mimes['tiff|tif'] = 'image/tiff';
 
     return $mimes;
 }
@@ -39,3 +40,15 @@ add_action( 'after_setup_theme', function() {
     ] );
 
 } );
+
+add_theme_support( 'post-thumbnails' );
+
+if (function_exists('acf_add_options_page')) {
+    acf_add_options_page(array(
+        'page_title' => 'Options',
+        'menu_title' => 'Options',
+        'menu_slug' => 'theme-general-settings',
+        'capability' => 'edit_posts',
+        'redirect' => false
+    ));
+}
