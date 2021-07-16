@@ -1,29 +1,68 @@
 .article {
   flex: 1 1 100%;
-  padding: 0 30px;
+  padding: 0 30px 0 0;
   margin-right: 30px;
 
   &__head {
-    background: rgba(21,21,13,1);
+    background-image: url('../../assets/images/girl_with_laptop.jpg');
     color: rgba(255,255,255,1);
     border-radius: 5px;
     min-height: 400px;
     text-align: center;
-    @extend .flex-center;
+    position: relative;
+    @extend .flex-center, .background;
   }
 
-  &__body {
+  &__about {
     display: flex;
     align-items: center;
-    background: linear-gradient(-135deg, #a137bc 0%, #d83c48 100%);
     max-width: 600px;
-    margin: -80px auto 0 auto;
-    border-radius: 5px;
-    padding: 20px 0;
+    padding: 60px 0;
+    margin: 0 auto;
 
     & > * {
       flex: 1 1 50%;
       padding: 0 20px;
+    }
+  }
+
+  &__partners {
+
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .terms {
+      &__list {
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    .term__img {
+      height: 60px;
+      width: 100px;
+      display: block;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        filter: opacity(1);
+        transition: all 0.3s;
+      }
+    }
+
+    .term__item {
+      margin: 0 20px;
+
+      &:hover {
+        .term__img {
+          img {
+            filter: opacity(0.7);
+          }
+        }
+      }
     }
   }
 

@@ -7,7 +7,6 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-attachment: fixed;
 }
 
 body {
@@ -17,16 +16,18 @@ body {
   scroll-behavior: smooth;
   line-height: 1;
   color: $font-color;
-  font-family: $font-regular;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
   font-size: 16px;
-
-  &.home {
-    background: rgba(202,202,206,1);
-  }
+  background: rgba(242,242,242,1);
 
   .logged-in #header {
     top: 32px;
   }
+}
+
+a {
+  text-decoration: none;
 }
 
 ul,
@@ -50,7 +51,8 @@ button,{
 h1,
 h2,
 h3 {
-  font-family: 'Merri Bold', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
   margin: 0 0 20px;
 }
 

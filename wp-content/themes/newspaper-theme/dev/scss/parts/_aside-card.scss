@@ -20,10 +20,7 @@
 
       overflow: hidden;
       border-radius: 5px;
-    }
-
-    &__body {
-      text-decoration: none;
+      border: 1px solid rgba(170,170,170,0.7);
     }
 
     &__thumb {
@@ -43,7 +40,6 @@
 
       span {
         color: $font-color;
-        line-height: 1.5rem;
       }
     }
   }
