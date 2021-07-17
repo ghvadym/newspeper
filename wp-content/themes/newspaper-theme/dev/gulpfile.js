@@ -30,7 +30,7 @@ gulp.task("refresh", function (done) {
 
 gulp.task("server", function () {
     server.init({
-        proxy: 'newspaper.loc/',
+        proxy: 'newspeper/',
         open: true,
         cors: true,
         ui: false,

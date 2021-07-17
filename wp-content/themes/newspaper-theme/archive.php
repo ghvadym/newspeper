@@ -1,19 +1,59 @@
-<?php
-get_header(); ?>
+<?php get_header();
 
-    <main id="main" class="site-main">
+$post = get_post();
+$paged = ( get_query_var('page') ? get_query_var('page') : 1 );
+$args = [
+    'posts_per_page' => get_option( 'posts_per_page' ),
+    'post_type'      => get_post_type( $post->ID ),
+    'paged'          => $paged
+];
 
-        <?php
-        if ( have_posts() ) :
-            while ( have_posts() ) :
-                the_post();
+$query = new WP_Query( $args );
+?>
 
-                the_content();
+<article class="archive">
+    <?php if ( $query->have_posts() ) : ?>
+        <div class="post__list">
+            <?php while ($query->have_posts()) : $query->the_post(); ?>
+                <?php $terms = get_the_terms( $post, 'label' ); ?>
 
-            endwhile;
-        endif; ?>
+                <div class="post__item">
+                    <a href="<?php the_permalink(); ?>" class="post__thumb">
+                        <img width="100" src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo $post->post_name ?>">
+                    </a>
+                    <div class="post__content">
+                        <div class="post__title">
+                            <?php echo $post->post_title ?>
+                        </div>
+                        <div class="post__desc">
+                            <?php echo strlen( $post->post_excerpt ) > 100 ? substr( $post->post_excerpt, 0, 100 ) . '...' : $post->post_excerpt ?>
+                        </div>
+                        <?php if ( !empty( $terms ) ) : ?>
+                            <div class="post__label">
+                                <a href="<?php echo get_term_link($terms[0]->term_id, 'label') ?>">
+                                    <?php echo $terms[0]->name ?>
+                                </a>
+                            </div>
+                        <?php endif ?>
+                    </div>
+                </div>
 
-    </main>
+            <?php endwhile ?>
+        </div>
+    <?php endif ?>
+    <?php  wp_reset_postdata() ?>
 
-<?php
-get_footer();
+    <div class="pagination">
+        <?php echo paginate_links([
+            'current'   => $paged,
+            'total'     => $query->max_num_pages,
+            'format'    => '?page=%#%',
+            'prev_next' => true,
+            'prev_text' => '<',
+            'next_text' => '>',
+        ]); ?>
+
+    </div>
+</article>
+
+<?php get_footer();

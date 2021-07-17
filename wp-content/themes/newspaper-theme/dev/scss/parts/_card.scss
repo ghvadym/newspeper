@@ -1,0 +1,59 @@
+.post {
+  &__item {
+
+    &:hover {
+      .post__thumb {
+        img {
+          filter: brightness(0.8);
+        }
+      }
+    }
+
+    overflow: hidden;
+    border-radius: 5px;
+    border: 1px solid rgba(170,170,170,0.7);
+  }
+
+  &__thumb {
+    height: 220px;
+    display: block;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background: floralwhite;
+    }
+  }
+
+  &__content {
+    background: rgba(255,255,255,1);
+    padding: 10px;
+    color: $font-color;
+    height: 100%;
+  }
+
+  &__title {
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+
+  &__desc {
+    margin-bottom: 15px;
+  }
+
+  &__label {
+    a {
+      display: block;
+      font-size: 1rem;
+      color: rgba(0,0,0,0.8);
+      font-style: italic;
+      text-align: center;
+      transition: all 0.3s;
+
+      &:hover {
+        color: rgba(0,0,0,0.5);
+      }
+    }
+  }
+}

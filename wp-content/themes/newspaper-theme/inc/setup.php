@@ -58,3 +58,8 @@ function remove_default_post_types() {
     remove_menu_page( 'edit.php' );
     remove_menu_page( 'edit-comments.php' );
 }
+
+function get_template_part_var($template, $data = []) {
+    extract($data);
+    require locate_template($template . '.php');
+}

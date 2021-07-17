@@ -1,0 +1,10 @@
+article.archive {
+  max-width: 1000px;
+  margin: 0 auto;
+
+  .post__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 30px;
+  }
+}
