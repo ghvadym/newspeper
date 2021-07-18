@@ -280,9 +280,11 @@ h3 {
       color: rgba(0, 0, 0, 0.5); }
 
 .post__item {
+  background: white;
   overflow: hidden;
   border-radius: 5px;
-  border: 1px solid rgba(170, 170, 170, 0.7); }
+  border: 1px solid rgba(170, 170, 170, 0.7);
+  position: relative; }
   .post__item:hover .post__thumb img {
     -webkit-filter: brightness(0.8);
     filter: brightness(0.8); }
@@ -298,10 +300,8 @@ h3 {
     background: floralwhite; }
 
 .post__content {
-  background: white;
   padding: 10px;
-  color: black;
-  height: 100%; }
+  color: black; }
 
 .post__title {
   font-style: italic;
@@ -310,15 +310,23 @@ h3 {
 .post__desc {
   margin-bottom: 15px; }
 
-.post__label a {
-  display: block;
-  font-size: 1rem;
-  color: rgba(0, 0, 0, 0.8);
-  font-style: italic;
-  text-align: center;
-  transition: all 0.3s; }
-  .post__label a:hover {
-    color: rgba(0, 0, 0, 0.5); }
+.post__label {
+  display: flex;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%); }
+  .post__label a {
+    display: block;
+    margin: 0 5px;
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.8);
+    font-style: italic;
+    text-align: center;
+    transition: all 0.3s; }
+    .post__label a:hover {
+      color: rgba(0, 0, 0, 0.5); }
 
 article.archive {
   max-width: 1000px;
@@ -327,6 +335,8 @@ article.archive {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 30px; }
+  article.archive .post__content {
+    padding: 10px 10px 30px; }
 
 .aside {
   flex: 0 0 250px;
@@ -382,3 +392,15 @@ article.archive {
       filter: opacity(0.7); }
   .article__subtitle {
     text-align: right; }
+
+.pagination {
+  padding: 30px 0; }
+  .pagination > * {
+    display: inline-block;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: black;
+    margin-right: 7px; }
+    .pagination > *.current {
+      color: #f58ee2;
+      text-decoration: underline; }

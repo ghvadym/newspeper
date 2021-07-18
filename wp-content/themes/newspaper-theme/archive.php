@@ -15,7 +15,10 @@ $query = new WP_Query( $args );
     <?php if ( $query->have_posts() ) : ?>
         <div class="post__list">
             <?php while ($query->have_posts()) : $query->the_post(); ?>
-                <?php $terms = get_the_terms( $post, 'label' ); ?>
+                <?php
+                $termsLabel = get_the_terms( $post, 'label' );
+                $termsCat = get_the_terms( $post, 'categories' );
+                ?>
 
                 <div class="post__item">
                     <a href="<?php the_permalink(); ?>" class="post__thumb">
@@ -23,15 +26,19 @@ $query = new WP_Query( $args );
                     </a>
                     <div class="post__content">
                         <div class="post__title">
-                            <?php echo $post->post_title ?>
+                            <?php echo strlen( $post->post_title ) > 60 ? substr( $post->post_title , 0, 60) . '...' : $post->post_title ?>
                         </div>
                         <div class="post__desc">
                             <?php echo strlen( $post->post_excerpt ) > 100 ? substr( $post->post_excerpt, 0, 100 ) . '...' : $post->post_excerpt ?>
                         </div>
-                        <?php if ( !empty( $terms ) ) : ?>
+                        <?php if ( !empty( $termsLabel ) || !empty( $termsCat ) ) : ?>
                             <div class="post__label">
-                                <a href="<?php echo get_term_link($terms[0]->term_id, 'label') ?>">
-                                    <?php echo $terms[0]->name ?>
+                                <a href="<?php echo get_term_link($termsLabel[0]->term_id, 'label') ?>">
+                                    <?php echo $termsLabel[0]->name ?>
+                                </a>
+                                |
+                                <a href="<?php echo get_term_link($termsCat[0]->term_id, 'categories') ?>">
+                                    <?php echo $termsCat[0]->name ?>
                                 </a>
                             </div>
                         <?php endif ?>

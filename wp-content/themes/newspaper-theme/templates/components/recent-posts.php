@@ -4,7 +4,7 @@ $args = [
     'numberposts' => 3,
     'post_status' => 'publish',
     'orderby'     => 'date',
-    'order'       => 'asc'
+    'order'       => 'desc'
 ];
 $posts = get_posts($args);
 ?>
