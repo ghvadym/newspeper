@@ -31,7 +31,20 @@ $fields = get_fields();
 
     <aside class="aside">
         <div class="post__list">
-            <?php get_template_part('templates/components/recent-posts') ?>
+            <?php
+            $post = get_post();
+            $args = [
+                'post_type'   => 'news',
+                'numberposts' => 3,
+                'post_status' => 'publish',
+                'orderby'     => 'date',
+                'order'       => 'desc',
+            ];
+            $posts = get_posts($args);
+            foreach ($posts as $post) : setup_postdata($post);
+                get_template_part_var('templates/components/recent-posts', ['post' => $post]);
+            endforeach;
+            wp_reset_postdata(); ?>
         </div>
     </aside>
 

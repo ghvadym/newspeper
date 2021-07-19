@@ -335,13 +335,16 @@ article.archive {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 30px; }
-  article.archive .post__content {
+  article.archive:not(.authors) .post__content {
     padding: 10px 10px 30px; }
+  article.archive.authors .post__list {
+    grid-template-columns: 1fr 1fr 1fr 1fr; }
+  article.archive.authors .post__title {
+    margin: 0;
+    text-align: center; }
 
 .aside {
-  flex: 0 0 250px;
-  position: sticky;
-  top: 0; }
+  flex: 0 0 250px; }
   .aside .post__item:not(:last-child) {
     margin-bottom: 30px; }
   .aside .post__title {

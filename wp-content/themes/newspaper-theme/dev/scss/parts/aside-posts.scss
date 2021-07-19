@@ -1,7 +1,5 @@
 .aside {
     flex: 0 0 250px;
-    position: sticky;
-    top: 0;
 
     .post__item {
         &:not(:last-child) {
