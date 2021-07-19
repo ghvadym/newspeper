@@ -5,13 +5,14 @@ get_header(); ?>
         <?php if (have_posts()) : ?>
             <?php while (have_posts()) :
                 the_post(); ?>
-                <div class="article__head" style="background-image: url(<?php the_post_thumbnail_url(); ?>)">
-
-                </div>
                 <div class="article__title">
                     <h1>
                         <?php the_title() ?>
                     </h1>
+                </div>
+                <div class="article__head" style="background-image: url(<?php the_post_thumbnail_url(); ?>)"></div>
+                <div class="article__body">
+                    <?php the_content() ?>
                 </div>
             <?php endwhile; ?>
         <?php endif ?>

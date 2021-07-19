@@ -14,17 +14,6 @@ function theme_scripts()
     //wp_localize_script( 'main-script', 'my-ajax', ['ajaxurl' => admin_url('admin-ajax.php')] );
 }
 
-if (!function_exists('dd')) {
-    function dd()
-    {
-        echo '<pre>';
-        array_map(function ($x) {
-            var_dump($x);
-        }, func_get_args());
-        die;
-    }
-}
-
 add_filter('upload_mimes', 'upload_allow_types');
 function upload_allow_types($mimes)
 {
@@ -60,10 +49,4 @@ function remove_default_post_types()
 {
     remove_menu_page('edit.php');
     remove_menu_page('edit-comments.php');
-}
-
-function get_template_part_var($template, $data = [])
-{
-    extract($data);
-    require locate_template($template . '.php');
 }
