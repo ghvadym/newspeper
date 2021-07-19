@@ -2,7 +2,19 @@
 get_header(); ?>
 
     <article class="article">
+        <?php if (have_posts()) : ?>
+            <?php while (have_posts()) :
+                the_post(); ?>
+                <div class="article__head" style="background-image: url(<?php the_post_thumbnail_url(); ?>)">
 
+                </div>
+                <div class="article__title">
+                    <h1>
+                        <?php the_title() ?>
+                    </h1>
+                </div>
+            <?php endwhile; ?>
+        <?php endif ?>
     </article>
 
     <aside class="aside">

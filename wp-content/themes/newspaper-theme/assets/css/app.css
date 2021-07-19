@@ -43,10 +43,12 @@ h2,
 h3 {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
+  font-style: italic;
   margin: 0 0 20px; }
 
 h1 {
-  font-size: 3rem; }
+  font-size: 3rem;
+  text-align: center; }
 
 h2 {
   font-size: 1.7rem; }
@@ -269,6 +271,11 @@ h3 {
   width: 100%;
   margin: 0 auto;
   padding: 20px; }
+  #navigation .menu {
+    display: flex;
+    -webkit-column-gap: 30px;
+    -moz-column-gap: 30px;
+    column-gap: 30px; }
   #navigation a {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
@@ -286,8 +293,8 @@ h3 {
   border: 1px solid rgba(170, 170, 170, 0.7);
   position: relative; }
   .post__item:hover .post__thumb img {
-    -webkit-filter: brightness(0.8);
-    filter: brightness(0.8); }
+    -webkit-filter: brightness(0.6);
+    filter: brightness(0.6); }
 
 .post__thumb {
   height: 220px;
@@ -297,7 +304,8 @@ h3 {
     height: 100%;
     -o-object-fit: cover;
     object-fit: cover;
-    background: floralwhite; }
+    background: floralwhite;
+    transition: all 0.3s; }
 
 .post__content {
   padding: 10px;
@@ -355,7 +363,6 @@ article.archive {
   padding: 0 30px 0 0;
   margin-right: 30px; }
   .article__head {
-    background-image: url("../../assets/images/girl_with_laptop.jpg");
     color: white;
     border-radius: 5px;
     min-height: 400px;
@@ -407,3 +414,13 @@ article.archive {
     .pagination > *.current {
       color: #f58ee2;
       text-decoration: underline; }
+
+.single .article__head {
+  min-height: 570px; }
+
+.single .article__title {
+  margin: 30px 0; }
+  .single .article__title h1 {
+    background: linear-gradient(90deg, #370735 15%, #e11a93 96%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; }

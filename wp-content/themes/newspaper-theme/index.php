@@ -4,7 +4,7 @@ $fields = get_fields();
 ?>
 
     <article class="article">
-        <div class="article__head">
+        <div class="article__head" style="background-image: url(<?php echo get_template_directory_uri() . '/assets/images/girl_with_laptop.jpg' ?>)">
             <div class="article__title">
                 <h1>
                     <?php echo $fields['home_title'] ?>

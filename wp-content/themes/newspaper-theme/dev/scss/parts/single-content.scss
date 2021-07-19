@@ -1,0 +1,17 @@
+.single {
+    .article {
+        &__head {
+            min-height: 570px;
+        }
+
+        &__title {
+            margin: 30px 0;
+
+            h1 {
+                background: linear-gradient(90deg, rgba(55, 7, 53, 1) 15%, rgba(225, 26, 147, 1) 96%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+    }
+}
