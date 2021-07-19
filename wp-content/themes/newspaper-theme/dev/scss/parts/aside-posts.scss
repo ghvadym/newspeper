@@ -1,15 +1,15 @@
 .aside {
-  flex: 0 0 250px;
-  position: sticky;
-  top: 0;
+    flex: 0 0 250px;
+    position: sticky;
+    top: 0;
 
-  .post__item {
-    &:not(:last-child) {
-      margin-bottom: 30px;
+    .post__item {
+        &:not(:last-child) {
+            margin-bottom: 30px;
+        }
     }
-  }
 
-  .post__title {
-    margin-bottom: 0;
-  }
+    .post__title {
+        margin-bottom: 0;
+    }
 }

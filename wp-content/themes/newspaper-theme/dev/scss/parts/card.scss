@@ -1,65 +1,65 @@
 .post {
-  &__item {
-    background: rgba(255,255,255,1);
-    overflow: hidden;
-    border-radius: 5px;
-    border: 1px solid rgba(170,170,170,0.7);
-    position: relative;
+    &__item {
+        background: rgba(255, 255, 255, 1);
+        overflow: hidden;
+        border-radius: 5px;
+        border: 1px solid rgba(170, 170, 170, 0.7);
+        position: relative;
 
-    &:hover {
-      .post__thumb {
-        img {
-          filter: brightness(0.8);
+        &:hover {
+            .post__thumb {
+                img {
+                    filter: brightness(0.8);
+                }
+            }
         }
-      }
     }
-  }
 
-  &__thumb {
-    height: 220px;
-    display: block;
+    &__thumb {
+        height: 220px;
+        display: block;
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      background: floralwhite;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background: floralwhite;
+        }
     }
-  }
 
-  &__content {
-    padding: 10px;
-    color: $font-color;
-  }
-
-  &__title {
-    font-style: italic;
-    margin-bottom: 10px;
-  }
-
-  &__desc {
-    margin-bottom: 15px;
-  }
-
-  &__label {
-    display: flex;
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-
-    a {
-      display: block;
-      margin: 0 5px;
-      font-size: 1rem;
-      color: rgba(0,0,0,0.8);
-      font-style: italic;
-      text-align: center;
-      transition: all 0.3s;
-
-      &:hover {
-        color: rgba(0,0,0,0.5);
-      }
+    &__content {
+        padding: 10px;
+        color: $font-color;
     }
-  }
+
+    &__title {
+        font-style: italic;
+        margin-bottom: 10px;
+    }
+
+    &__desc {
+        margin-bottom: 15px;
+    }
+
+    &__label {
+        display: flex;
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        a {
+            display: block;
+            margin: 0 5px;
+            font-size: 1rem;
+            color: rgba(0, 0, 0, 0.8);
+            font-style: italic;
+            text-align: center;
+            transition: all 0.3s;
+
+            &:hover {
+                color: rgba(0, 0, 0, 0.5);
+            }
+        }
+    }
 }

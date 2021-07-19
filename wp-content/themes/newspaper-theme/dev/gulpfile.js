@@ -8,14 +8,13 @@ var autoprefixer = require('gulp-autoprefixer');
 const px2rem = require('gulp-px2rem');
 
 
-
 gulp.task("css", function () {
     return gulp.src("scss/app.scss")
         .pipe(plumber())
         .pipe(sass())
         .pipe(autoprefixer({
             overrideBrowserslist: ['last 2 versions'],
-            cascade: false
+            cascade             : false
         }))
         .pipe(gulp.dest("../assets/css/"))
         .pipe(server.stream());
@@ -30,14 +29,14 @@ gulp.task("refresh", function (done) {
 
 gulp.task("server", function () {
     server.init({
-        proxy: 'newspeper/',
-        open: true,
-        cors: true,
-        ui: false,
+        proxy         : 'newspeper.loc/',
+        open          : true,
+        cors          : true,
+        ui            : false,
         snippetOptions: {
             rule: {
                 match: /$/i,
-                fn: function (snippet, match) {
+                fn   : function (snippet, match) {
                     return snippet + match;
                 }
             }

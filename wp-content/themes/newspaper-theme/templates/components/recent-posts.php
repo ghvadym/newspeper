@@ -4,12 +4,12 @@ $args = [
     'numberposts' => 3,
     'post_status' => 'publish',
     'orderby'     => 'date',
-    'order'       => 'desc'
+    'order'       => 'desc',
 ];
 $posts = get_posts($args);
 ?>
 
-<?php foreach( $posts as $post ) : setup_postdata($post); ?>
+<?php foreach ($posts as $post) : setup_postdata($post); ?>
     <div class="post__item">
         <a href="<?php the_permalink(); ?>" class="post__body">
             <div class="post__thumb">
@@ -17,9 +17,10 @@ $posts = get_posts($args);
             </div>
             <div class="post__content">
                 <div class="post__title">
-                    <?php echo strlen($post->post_title) > 50 ? substr( $post->post_title, 0, 50 ) . '...' : $post->post_title ?>
+                    <?php echo strlen($post->post_title) > 50 ? substr($post->post_title, 0, 50) . '...' : $post->post_title ?>
                 </div>
             </div>
         </a>
     </div>
-<?php endforeach; wp_reset_postdata(); ?>
+<?php endforeach;
+wp_reset_postdata(); ?>
