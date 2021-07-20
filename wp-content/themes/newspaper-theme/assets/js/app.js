@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
 
                 var html = await response.json();
-
                 if (html == null) {
                     return false;
                 }
@@ -34,7 +33,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 //     container.appendChild(el);
                 // });
 
-                // parser.parseFromString(html.result, 'text/html');
                 document.querySelector('.post__list').innerHTML = html.result;
 
             })();

@@ -5,7 +5,6 @@ function archive_pagination()
     $postsPerPage = get_option('posts_per_page');
     $page = $_POST['page'] ?? '';
     $offset = $page * $postsPerPage - $postsPerPage;
-
     $args = [
         'post_status'    => 'publish',
         'posts_per_page' => $postsPerPage,
@@ -28,8 +27,6 @@ function archive_pagination()
     ob_end_clean();
 
     wp_send_json(['result' => $html]);
-
-    die();
 }
 
 add_action('wp_ajax_archive_pagination', 'archive_pagination');
