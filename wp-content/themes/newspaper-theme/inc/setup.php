@@ -11,7 +11,9 @@ add_action('wp_enqueue_scripts', 'theme_scripts');
 function theme_scripts()
 {
     wp_enqueue_script('main-script', get_template_directory_uri() . '/assets/js/app.js', ['jquery'], false, true);
-    //wp_localize_script( 'main-script', 'my-ajax', ['ajaxurl' => admin_url('admin-ajax.php')] );
+    wp_localize_script('main-script', 'myajax', [
+        'ajaxurl'   => admin_url('admin-ajax.php')
+    ]);
 }
 
 add_filter('upload_mimes', 'upload_allow_types');

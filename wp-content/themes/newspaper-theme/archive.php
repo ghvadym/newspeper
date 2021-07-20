@@ -3,6 +3,7 @@
 $post = get_post();
 $paged = (get_query_var('page') ? get_query_var('page') : 1);
 $args = [
+    'post_status'    => 'publish',
     'posts_per_page' => get_option('posts_per_page'),
     'post_type'      => get_post_type($post->ID),
     'paged'          => $paged,
