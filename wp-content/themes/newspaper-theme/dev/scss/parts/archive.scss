@@ -8,6 +8,29 @@ article.archive {
         grid-gap: 30px;
     }
 
+    .post__item {
+        animation: fadeIn ease-in-out 100ms;
+
+        &:nth-of-type(1) {
+            animation-duration: 1000ms;
+        }
+        &:nth-of-type(2) {
+            animation-duration: 1300ms;
+        }
+        &:nth-of-type(3) {
+            animation-duration: 1600ms;
+        }
+        &:nth-of-type(4) {
+            animation-duration: 1900ms;
+        }
+        &:nth-of-type(5) {
+            animation-duration: 2100ms;
+        }
+        &:nth-of-type(6) {
+            animation-duration: 2400ms;
+        }
+    }
+
     &:not(.authors) {
         .post__content {
             padding: 10px 10px 30px;

@@ -9,6 +9,20 @@ $args = [
     'paged'          => $paged,
 ];
 
+$term_list = wp_get_post_terms($post->ID, 'label', array("fields" => "all"));
+
+if (is_tax()) {
+    $args['tax_query'] = [
+        [
+            'taxonomy' => 'label',
+            'field'    => 'slug',
+            'terms'    => $term_list[0]->slug,
+        ]
+    ];
+}
+
+
+
 $query = new WP_Query($args);
 ?>
 

@@ -4,13 +4,15 @@
     & > * {
         display: inline-block;
         font-weight: 500;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         color: $font-color;
         margin-right: 7px;
+        cursor: pointer;
 
         &.current {
             color: #f58ee2;
             text-decoration: underline;
+            cursor: unset;
         }
     }
 }

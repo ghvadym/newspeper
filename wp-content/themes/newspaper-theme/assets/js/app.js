@@ -20,21 +20,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
 
                 var html = await response.json();
+
                 if (html == null) {
                     return false;
                 }
 
-                // var parser = new DOMParser();
-                // var doc = parser.parseFromString(html.result, 'text/html');
-                // var container = document.querySelector('.post__list')
-                // container.innerHTML = '';
-                // var resultItems = doc.querySelectorAll('.post__item');
-                // resultItems.forEach(function (el) {
-                //     container.appendChild(el);
-                // });
+                paginas.forEach((item) => {
+                    item.classList.remove('current');
+                })
+                pagina.classList.add('current');
 
                 document.querySelector('.post__list').innerHTML = html.result;
-
             })();
         });
     });
