@@ -41,9 +41,15 @@ $fields = get_fields();
                 'order'       => 'desc',
             ];
             $posts = get_posts($args);
-            foreach ($posts as $post) : setup_postdata($post);
-                get_template_part_var('templates/components/recent-posts', ['post' => $post]);
-            endforeach;
+            if (!empty($posts)) :
+                foreach ($posts as $post) : setup_postdata($post);
+                    get_template_part_var('templates/components/recent-posts', ['post' => $post]);
+                endforeach;
+            else:
+                ?>
+                <h3><?php _e('Coming soon', 'newspaper'); ?></h3>
+            <?php
+            endif;
             wp_reset_postdata(); ?>
         </div>
     </aside>

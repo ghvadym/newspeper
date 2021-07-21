@@ -11,7 +11,7 @@
 <body <?php body_class(); ?>>
 <div id="navigation">
     <div class="nav__logo">
-        <a href="<?php echo home_url(); ?>">
+        <a class="logo" href="<?php echo home_url(); ?>">
             Newspapers & <br>
             Magazines
         </a>

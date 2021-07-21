@@ -7,7 +7,6 @@
 
         &__title {
             padding: 30px 0;
-            border-top: 1px solid rgba(132,132,132,1);
 
             h1 {
                 background: linear-gradient(90deg, rgba(55, 7, 53, 1) 15%, rgba(225, 26, 147, 1) 96%);
@@ -20,7 +19,7 @@
     .aside {
         .post__list {
             position: sticky;
-            top: 50px;
+            top: 100px;
         }
     }
 }
