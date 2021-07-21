@@ -21,8 +21,6 @@ if (is_tax()) {
     ];
 }
 
-
-
 $query = new WP_Query($args);
 ?>
 

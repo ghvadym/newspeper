@@ -28,7 +28,7 @@ $categories = get_terms('categories', ['hide_empty' => true]);
                     <div class="nav__col">
                         <?php foreach ($labels as $label) : ?>
                             <div class="nav__item">
-                                <a href="<?php get_term_link($label) ?>"><?php echo $label->name ?></a>
+                                <a href="<?php echo get_term_link($label->term_id) ?>"><?php echo $label->name ?></a>
                             </div>
                         <?php endforeach; ?>
                     </div>
@@ -40,7 +40,7 @@ $categories = get_terms('categories', ['hide_empty' => true]);
                     <div class="nav__col">
                         <?php foreach ($categories as $cat) : ?>
                             <div class="nav__item">
-                                <a href="<?php get_term_link($cat) ?>"><?php echo $cat->name ?></a>
+                                <a href="<?php echo get_term_link($cat->term_id) ?>"><?php echo $cat->name ?></a>
                             </div>
                         <?php endforeach; ?>
                     </div>
