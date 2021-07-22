@@ -10,7 +10,7 @@ function theme_styles()
 add_action('wp_enqueue_scripts', 'theme_scripts');
 function theme_scripts()
 {
-    wp_enqueue_script('main-script', get_template_directory_uri() . '/assets/js/app.js', ['jquery'], false, true);
+    wp_enqueue_script('main-script', get_template_directory_uri() . '/assets/js/app.js', ['jquery'], time(), true);
     wp_localize_script('main-script', 'myajax', [
         'ajaxurl'   => admin_url('admin-ajax.php')
     ]);

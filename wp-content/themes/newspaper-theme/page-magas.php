@@ -7,55 +7,56 @@ get_header();
 $labels = get_terms('label', ['hide_empty' => true]);
 $categories = get_terms('categories', ['hide_empty' => true]);
 $args = [
-    'post_type'   => 'authors',
-    'numberposts' => -1,
-    'post_status' => 'publish',
+    'post_status'    => 'publish',
+    'posts_per_page' => 9,
+    'post_type'      => 'news',
 ];
-$posts = get_posts($args);
+$query = new WP_Query($args);
 ?>
 
-<div class="aside">
-    <div class="news-filter">
-        <?php if (!empty($labels)) : ?>
+    <aside class="aside">
+        <div class="news-filter">
             <div class="news-filter__cat">
+                <?php if (!empty($labels)) : ?>
                 <h2 class="news-filter__title"><?php _e('Labels', 'newspaper') ?></h2>
                 <div class="news-filter__list">
                     <?php foreach ($labels as $label) : ?>
-                        <div class="news-filter__item">
-                            <a href="<?php echo get_term_link($label->term_id) ?>"><?php echo $label->name ?></a>
-                        </div>
+                        <label class="news-filter__item">
+                            <input type="checkbox" value="<?php echo $label->term_id ?>">
+                            <?php echo $label->name ?>
+                        </label>
                     <?php endforeach; ?>
                 </div>
             </div>
-        <?php endif; ?>
+            <?php endif; ?>
 
-        <?php if (!empty($categories)) : ?>
-            <div class="news-filter__cat">
-                <h2 class="news-filter__title"><?php _e('Categories', 'newspaper') ?></h2>
-                <div class="news-filter__list">
-                    <?php foreach ($categories as $category) : ?>
-                        <div class="news-filter__item">
-                            <a href="<?php echo get_term_link($category->term_id) ?>"><?php echo $category->name ?></a>
-                        </div>
-                    <?php endforeach; ?>
+            <?php if (!empty($categories)) : ?>
+                <div class="news-filter__cat">
+                    <h2 class="news-filter__title"><?php _e('Categories', 'newspaper') ?></h2>
+                    <div class="news-filter__list">
+                        <?php foreach ($categories as $category) : ?>
+                            <label class="news-filter__item">
+                                <input type="checkbox" value="<?php echo $category->term_id ?>">
+                                <?php echo $category->name ?>
+                            </label>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
-            </div>
-        <?php endif; ?>
+            <?php endif; ?>
 
-        <?php if (!empty($posts)) : ?>
-            <div class="news-filter__cat">
-                <h2 class="news-filter__title"><?php _e('Authors', 'newspaper') ?></h2>
-                <div class="news-filter__list">
-                    <?php foreach ($posts as $post) : setup_postdata($post); ?>
-                        <div class="news-filter__item">
-                            <a href="<?php the_permalink(); ?>"><?php echo $post->post_title ?></a>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
+            <a href="<?php wp_get_current_url() ?>" class="news-filter__clear">Clear filter</a>
+        </div>
+    </aside>
+
+    <article class="archive filter">
+        <?php if ($query->have_posts()) : ?>
+            <div class="post__list">
+                <?php while ($query->have_posts()) : $query->the_post(); ?>
+                    <?php get_template_part_var('templates/components/archive-posts', ['post' => $query->post]); ?>
+                <?php endwhile ?>
             </div>
-        <?php endif;
-        wp_reset_postdata(); ?>
-    </div>
-</div>
+        <?php endif ?>
+        <?php wp_reset_postdata() ?>
+    </article>
 
 <?php get_footer(); ?>

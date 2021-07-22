@@ -22,3 +22,7 @@ function wrap_content_div( $content )
 {
     return '<div class="article__content">'.$content.'</div>';
 }
+
+function wp_get_current_url() {
+    return home_url( $_SERVER['REQUEST_URI'] );
+}
