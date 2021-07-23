@@ -13,6 +13,16 @@
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
             }
+
+            blockquote {
+                max-width: 600px;
+                width: 100%;
+                font-size: 1.3rem;
+                display: block;
+                margin: 0 auto;
+                line-height: 1.5;
+                color: rgba(0,0,0,0.8);
+            }
         }
     }
 

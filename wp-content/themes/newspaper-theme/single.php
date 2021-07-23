@@ -6,13 +6,21 @@ get_header(); ?>
             <?php while (have_posts()) :
                 the_post(); ?>
                 <div class="article__title">
-                    <h1>
-                        <?php the_title() ?>
-                    </h1>
+                    <h1><?php the_title() ?></h1>
+                    <blockquote><?php echo '&#10077' . get_the_excerpt() . '&#10077;' ?></blockquote>
                 </div>
                 <div class="article__head" style="background-image: url(<?php the_post_thumbnail_url(); ?>)"></div>
                 <div class="article__body">
                     <?php the_content() ?>
+                </div>
+                <?php
+                ?>
+                <div class="article__data">
+                    <div class="data__item">
+                        <span>
+
+                        </span>
+                    </div>
                 </div>
             <?php endwhile; ?>
         <?php endif ?>

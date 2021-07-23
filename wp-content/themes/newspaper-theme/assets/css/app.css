@@ -57,6 +57,9 @@ h2 {
 h3 {
   font-size: 1.3rem; }
 
+blockquote {
+  font-weight: 500; }
+
 .logo, #navigation a {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
@@ -434,26 +437,35 @@ article.archive {
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 30px; }
   article.archive .post__item {
-    -webkit-animation: fadeIn ease-in-out 100ms;
-    animation: fadeIn ease-in-out 100ms; }
+    -webkit-animation: fadeIn ease-in-out;
+    animation: fadeIn ease-in-out; }
     article.archive .post__item:nth-of-type(1) {
       -webkit-animation-duration: 1000ms;
       animation-duration: 1000ms; }
     article.archive .post__item:nth-of-type(2) {
-      -webkit-animation-duration: 1300ms;
-      animation-duration: 1300ms; }
+      -webkit-animation-duration: 1200ms;
+      animation-duration: 1200ms; }
     article.archive .post__item:nth-of-type(3) {
+      -webkit-animation-duration: 1400ms;
+      animation-duration: 1400ms; }
+    article.archive .post__item:nth-of-type(4) {
       -webkit-animation-duration: 1600ms;
       animation-duration: 1600ms; }
-    article.archive .post__item:nth-of-type(4) {
-      -webkit-animation-duration: 1900ms;
-      animation-duration: 1900ms; }
     article.archive .post__item:nth-of-type(5) {
-      -webkit-animation-duration: 2100ms;
-      animation-duration: 2100ms; }
+      -webkit-animation-duration: 1800ms;
+      animation-duration: 1800ms; }
     article.archive .post__item:nth-of-type(6) {
+      -webkit-animation-duration: 2000ms;
+      animation-duration: 2000ms; }
+    article.archive .post__item:nth-of-type(7) {
+      -webkit-animation-duration: 2200ms;
+      animation-duration: 2200ms; }
+    article.archive .post__item:nth-of-type(8) {
       -webkit-animation-duration: 2400ms;
       animation-duration: 2400ms; }
+    article.archive .post__item:nth-of-type(9) {
+      -webkit-animation-duration: 2600ms;
+      animation-duration: 2600ms; }
   article.archive:not(.authors) .post__content {
     padding: 10px 10px 30px; }
   article.archive.authors .post__list {
@@ -553,6 +565,14 @@ article.archive {
     background: linear-gradient(90deg, #370735 15%, #e11a93 96%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; }
+  .single .article__title blockquote {
+    max-width: 600px;
+    width: 100%;
+    font-size: 1.3rem;
+    display: block;
+    margin: 0 auto;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.8); }
 
 .single .aside .post__list {
   position: sticky;
