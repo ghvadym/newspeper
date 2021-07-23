@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var arrayInputs = [];
 
     termsInput.forEach((input) => {
-        input.addEventListener('change', async () => {
+        input.addEventListener('change', async (event) => {
             termsInput.forEach((inputCheck) => {
                 var term = inputCheck.value;
                 if (!inputCheck.checked || arrayInputs.includes(term)) {
@@ -71,6 +71,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                 arrayInputs.push(term);
             });
+
+            if (!event.target.checked && arrayInputs.includes(event.target.value)) {
+                var index = arrayInputs.indexOf(event.target.value);
+                arrayInputs.splice(index);
+            }
 
             var data = new FormData();
             data.append('action', 'archive_filter');

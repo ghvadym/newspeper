@@ -42,7 +42,7 @@ function archive_filter()
         ];
     }
 
-    if (!empty($taxQuery)) {
+    if (!empty($termsString)) {
         $args['tax_query'] = $taxQuery;
     }
 
