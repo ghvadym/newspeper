@@ -35,30 +35,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // var filterButtons = document.querySelectorAll('.news-filter__item > input');
-    // var array = [];
-    // filterButtons.forEach((button) => {
-    //     button.addEventListener('click', async () => {
-    //         filterButtons.forEach((check) => {
-    //             var term = check.value;
-    //
-    //             if (!check.checked || array.includes(term)) {
-    //                 return;
-    //             }
-    //              array.push(term);
-    //
-    //         });
-    //         var formData = new FormData();
-    //         formData.append('action', 'archive_filter');
-    //         formData.append('terms', array);
-    //         var selectPost = await fetch(myajax.ajaxurl, {
-    //             method: 'POST',
-    //             body: formData
-    //         });
-    //
-    //     });
-    // });
-
     var termsInput = document.querySelectorAll('.news-filter__item > input');
     var arrayInputs = [];
 
@@ -77,6 +53,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 arrayInputs.splice(index);
             }
 
+            // if (arrayInputs.length) {
+            //     arrayInputs.join();
+            // }
+
             var data = new FormData();
             data.append('action', 'archive_filter');
             data.append('filter_data', arrayInputs);
@@ -88,11 +68,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
             var html = await response.json();
 
-            if (html == null) {
-                return;
-            }
-
             document.querySelector('.archive.filter .post__list').innerHTML = html.result;
+
+            // var parser = new DOMParser();
+            // var doc = parser.parseFromString(html.result, 'text/html');
+            // var posts = doc.querySelectorAll('.post__item');
+            // postsWrapper.innerHTML = '';
+
+            //posts.forEach((post)=> {
+            //postsWrapper.appendChild(post);
+            //});
         });
     });
 });

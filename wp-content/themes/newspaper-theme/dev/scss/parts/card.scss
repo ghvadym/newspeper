@@ -18,13 +18,13 @@
     &__thumb {
         height: 220px;
         display: block;
+        background: #212121;
 
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             object-position: top;
-            background: floralwhite;
             transition: all 0.3s;
         }
     }
@@ -52,12 +52,23 @@
 
         a {
             display: block;
-            margin: 0 5px;
+            padding: 0 5px;
             font-size: 1rem;
             color: rgba(0, 0, 0, 0.8);
             font-style: italic;
             text-align: center;
             transition: all 0.3s;
+
+            &.label__cat {
+                position: relative;
+
+                &:after {
+                    content: '|';
+                    position: absolute;
+                    left: -2.5px;
+                    top: 0;
+                }
+            }
 
             &:hover {
                 color: rgba(0, 0, 0, 0.5);

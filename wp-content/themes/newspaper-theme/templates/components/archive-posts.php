@@ -10,20 +10,22 @@
             <div class="post__desc">
                 <?php echo strlen($post->post_excerpt) > 100 ? substr($post->post_excerpt, 0, 100) . '...' : $post->post_excerpt ?>
             </div>
-        <?php endif;
+        <?php endif; ?>
 
-        $termsLabel = get_the_terms($post, 'label');
-        $termsCat = get_the_terms($post, 'categories');
-        if (!empty($termsLabel) || !empty($termsCat)) : ?>
-            <div class="post__label">
-                <a href="<?php echo get_term_link($termsLabel[0]->term_id, 'label') ?>">
+        <div class="post__label">
+            <?php if (has_term('', 'label')) :
+                $termsLabel = get_the_terms($post, 'label'); ?>
+                <a class="label__mag" href="<?php echo get_term_link($termsLabel[0]->term_id, 'label') ?>">
                     <?php echo $termsLabel[0]->name ?>
                 </a>
-                |
-                <a href="<?php echo get_term_link($termsCat[0]->term_id, 'categories') ?>">
+            <?php endif ?>
+
+            <?php if (has_term('', 'categories')) :
+                $termsCat = get_the_terms($post, 'categories'); ?>
+                <a class="label__cat" href="<?php echo get_term_link($termsCat[0]->term_id, 'categories') ?>">
                     <?php echo $termsCat[0]->name ?>
                 </a>
-            </div>
-        <?php endif ?>
+            <?php endif ?>
+        </div>
     </div>
 </div>
