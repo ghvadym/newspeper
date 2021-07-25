@@ -5,9 +5,15 @@ document.addEventListener('DOMContentLoaded', function () {
         pagina.addEventListener('click', (e) => {
             e.preventDefault();
 
-            if (pagina.classList.contains('current') || pagina.classList.contains('next') || pagina.classList.contains('prev')) {
+            var element = '';
+
+            if (pagina.classList.contains('current')) {
                 return;
             }
+
+            // var link = pagina.getAttribute('href');
+            // var url = new URL(link);
+            // var page = url.searchParams.get('page');
 
             var data = new FormData();
             data.append('action', 'archive_pagination');
@@ -21,14 +27,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 var html = await response.json();
 
-                if (html == null) {
-                    return false;
-                }
+                if (!html) return false;
 
                 paginas.forEach((item) => {
                     item.classList.remove('current');
                 })
-                pagina.classList.add('current');
+
+                pagina.classList.add('current');s
 
                 document.querySelector('.post__list').innerHTML = html.result;
             })();
@@ -36,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     var termsInput = document.querySelectorAll('.news-filter__item > input');
+    var postsWrapper = document.querySelector('.archive.filter .post__list');
     var arrayInputs = [];
 
     termsInput.forEach((input) => {
@@ -53,9 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 arrayInputs.splice(index);
             }
 
-            // if (arrayInputs.length) {
-            //     arrayInputs.join();
-            // }
+            //if (arrayInputs.length) arrayInputs.join();
 
             var data = new FormData();
             data.append('action', 'archive_filter');
@@ -68,16 +72,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
             var html = await response.json();
 
-            document.querySelector('.archive.filter .post__list').innerHTML = html.result;
+            if (!html) return false;
+
+            postsWrapper.innerHTML = html.result;
 
             // var parser = new DOMParser();
             // var doc = parser.parseFromString(html.result, 'text/html');
             // var posts = doc.querySelectorAll('.post__item');
-            // postsWrapper.innerHTML = '';
-
-            //posts.forEach((post)=> {
-            //postsWrapper.appendChild(post);
-            //});
+            //
+            // posts.forEach((post)=> {
+            //     document.querySelector('.archive.filter .post__list').appendChild(post);
+            // });
         });
     });
 });

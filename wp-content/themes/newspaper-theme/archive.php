@@ -38,6 +38,7 @@ $query = new WP_Query($args);
             <?php echo paginate_links([
                 'current'   => $paged,
                 'total'     => $query->max_num_pages,
+                'format'    => '?page=%#%',
                 'prev_next' => true,
                 'prev_text' => '<',
                 'next_text' => '>',
