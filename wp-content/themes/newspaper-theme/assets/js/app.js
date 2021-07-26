@@ -1,19 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
     var ajax = myajax.ajaxurl;
+    var postsWrap = document.querySelector('.archive .post__list');
     var paginas = document.querySelectorAll('.archive  .pagination .page-numbers');
     paginas.forEach((pagina) => {
         pagina.addEventListener('click', (e) => {
             e.preventDefault();
 
-            var element = '';
-
             if (pagina.classList.contains('current')) {
                 return;
             }
-
-            // var link = pagina.getAttribute('href');
-            // var url = new URL(link);
-            // var page = url.searchParams.get('page');
 
             var data = new FormData();
             data.append('action', 'archive_pagination');
@@ -35,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 pagina.classList.add('current');
 
-                document.querySelector('.post__list').innerHTML = html.result;
+                postsWrap.innerHTML = html.result;
             })();
         });
     });
@@ -59,8 +54,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 arrayInputs.splice(index);
             }
 
-            //if (arrayInputs.length) arrayInputs.join();
-
             var data = new FormData();
             data.append('action', 'archive_filter');
             data.append('filter_data', arrayInputs);
@@ -75,14 +68,6 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!html) return false;
 
             postsWrapper.innerHTML = html.result;
-
-            // var parser = new DOMParser();
-            // var doc = parser.parseFromString(html.result, 'text/html');
-            // var posts = doc.querySelectorAll('.post__item');
-            //
-            // posts.forEach((post)=> {
-            //     document.querySelector('.archive.filter .post__list').appendChild(post);
-            // });
         });
     });
 });

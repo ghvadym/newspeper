@@ -40,6 +40,13 @@ get_header();
             endif;
             wp_reset_postdata(); ?>
         </div>
+
+        <?php $authorPosts = get_field('author_posts_page', get_the_ID()); ?>
+        <div class="author-posts">
+            <a class="author-posts__link" href="<?php echo '/news/' /*get_permalink($authorPosts->ID)*/ . '?id=' . get_the_ID() ?>">
+                <?php echo $authorPosts->post_title ?>
+            </a>
+        </div>
     </article>
 
 <?php

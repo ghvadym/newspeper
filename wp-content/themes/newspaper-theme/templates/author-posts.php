@@ -1,3 +1,9 @@
+<?php
+/*
+  * Template name: Author posts
+  */
+?>
+
 <?php get_header();
 
 $post = get_post();
@@ -5,29 +11,15 @@ $paged = (get_query_var('page') ? get_query_var('page') : 1);
 $args = [
     'post_status'    => 'publish',
     'posts_per_page' => get_option('posts_per_page'),
+    'post_type'      => 'news',
     'paged'          => $paged,
 ];
 
-if (is_archive()) {
-    $args['post_type'] = get_post_type($post->ID);
-}
+$authorID = $_GET['id'] ?? '';
 
-$personId = $_GET['id'] ?? '';
-if ($personId) {
+if ($authorID) {
     $args['meta_key'] = 'author_name';
-    $args['meta_value'] = $personId;
-}
-
-$term_list = wp_get_post_terms($post->ID, 'label', array("fields" => "all"));
-
-if (is_tax()) {
-    $args['tax_query'] = [
-        [
-            'taxonomy' => 'label',
-            'field'    => 'slug',
-            'terms'    => $term_list[0]->slug,
-        ]
-    ];
+    $args['meta_value'] = $authorID;
 }
 
 $query = new WP_Query($args);
@@ -57,3 +49,4 @@ $query = new WP_Query($args);
     </article>
 
 <?php get_footer();
+
