@@ -49,6 +49,7 @@ h3 {
 
 h1 {
   font-size: 3rem;
+  line-height: 4rem;
   text-align: center; }
 
 h2 {
@@ -70,12 +71,15 @@ blockquote {
   .logo:hover, #navigation a:hover {
     color: rgba(0, 0, 0, 0.5); }
 
-.main {
-  display: flex;
-  justify-content: space-between;
+.container, .main {
   max-width: 1280px;
   width: 100%;
   margin: 0 auto;
+  padding: 0 20px; }
+
+.main {
+  display: flex;
+  justify-content: space-between;
   padding: 100px 20px 100px; }
 
 body.logged-in #navigation {
@@ -95,7 +99,7 @@ body.logged-in.single .aside .post__list {
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 15px; }
+  margin: 0 -15px; }
 
 .col,
 .col-6,
@@ -324,10 +328,7 @@ body.logged-in.single .aside .post__list {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 10px 20px 5px 20px; }
+    padding: 20px 0 5px; }
   #navigation .menu {
     display: flex;
     -webkit-column-gap: 30px;
@@ -581,6 +582,35 @@ article.archive {
     margin: 0 auto;
     line-height: 1.5;
     color: rgba(0, 0, 0, 0.8); }
+
+.single .article__data .data__item {
+  margin-bottom: 20px; }
+  .single .article__data .data__item a {
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.8);
+    transition: all 0.3s;
+    font-size: 1.2rem; }
+    .single .article__data .data__item a:hover {
+      color: rgba(0, 0, 0, 0.5); }
+
+.single .article.authors {
+  margin: 0; }
+  .single .article.authors .article__head {
+    height: 200px;
+    width: 200px;
+    min-height: auto;
+    margin: 0 auto; }
+  .single .article.authors .article__title {
+    padding: 20px 0 50px; }
+    .single .article.authors .article__title h1 {
+      margin: 0;
+      background: linear-gradient(90deg, #101010 15%, #606060 96%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; }
+  .single .article.authors .article__news {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 30px; }
 
 .single .aside .post__list {
   position: sticky;

@@ -59,6 +59,7 @@ h3 {
 
 h1 {
     font-size: 3rem;
+    line-height: 4rem;
     text-align: center;
 }
 
@@ -87,13 +88,18 @@ blockquote {
     }
 }
 
-.main {
-    display: flex;
-    justify-content: space-between;
+.container {
     max-width: 1280px;
     width: 100%;
     margin: 0 auto;
+    padding: 0 20px;
+}
+
+.main {
+    display: flex;
+    justify-content: space-between;
     padding: 100px 20px 100px;
+    @extend .container;
 }
 
 body {
@@ -123,7 +129,7 @@ body {
 .row {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 15px;
+    margin: 0 -15px;
 }
 
 .col,

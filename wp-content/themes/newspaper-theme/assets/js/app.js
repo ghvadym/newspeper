@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     item.classList.remove('current');
                 })
 
-                pagina.classList.add('current');s
+                pagina.classList.add('current');
 
                 document.querySelector('.post__list').innerHTML = html.result;
             })();
