@@ -44,6 +44,7 @@ $query = new WP_Query($args);
         <?php wp_reset_postdata() ?>
 
         <div class="pagination">
+            <span class="prev page-numbers"> < </span>
             <?php echo paginate_links([
                 'current'   => $paged,
                 'total'     => $query->max_num_pages,
@@ -52,7 +53,6 @@ $query = new WP_Query($args);
                 'prev_text' => '<',
                 'next_text' => '>',
             ]); ?>
-
         </div>
     </article>
 

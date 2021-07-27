@@ -10,9 +10,35 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
+            var page = +pagina.innerHTML;
+
+            // paginas.forEach((item) => {
+            //     item.classList.remove('current');
+            // });
+
+            if (pagina.classList.contains('next')) {
+                paginas.forEach( (item) => {
+                    item.classList.remove('current');
+                    if (item.classList.contains('current')) {
+                        var newCurrent = item.nextElementSibling;
+                        page = +newCurrent.innerHTML;
+                        newCurrent.classList.add('current');
+                    }
+                });
+            } else if (pagina.classList.contains('prev')) {
+                paginas.forEach( (item, index) => {
+                    item.classList.remove('current');
+                    if (index > 0 && item.classList.contains('current')) {
+                        var newCurrent = item.previousElementSibling;
+                        page = +newCurrent.innerHTML;
+                        newCurrent.classList.add('current');
+                    }
+                });
+            }
+
             var data = new FormData();
             data.append('action', 'archive_pagination');
-            data.append('page', +pagina.innerHTML);
+            data.append('page', page);
 
             (async () => {
                 var response = await fetch(ajax, {
@@ -24,11 +50,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 if (!html) return false;
 
-                paginas.forEach((item) => {
-                    item.classList.remove('current');
-                })
-
-                pagina.classList.add('current');
+                // paginas.forEach((item) => {
+                //     item.classList.remove('current');
+                // });
+                //
+                // pagina.classList.add('current');
 
                 postsWrap.innerHTML = html.result;
             })();
