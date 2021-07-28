@@ -2,3 +2,7 @@
   from {opacity: 0}
   to {opacity: 1}
 }
+
+body {
+  transition: all 9s;
+}

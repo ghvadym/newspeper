@@ -1,51 +1,26 @@
-"use strict";
+const
+    {src, dest, watch, series} = require('gulp'),
+    sass = require('gulp-sass'),
+    autoprefixer = require('gulp-autoprefixer'),
+    cleanCss = require('gulp-clean-css');
 
-var gulp = require("gulp");
-var plumber = require("gulp-plumber");
-var sass = require("gulp-sass");
-var server = require("browser-sync").create();
-var autoprefixer = require('gulp-autoprefixer');
-const px2rem = require('gulp-px2rem');
+const
+    SRC   = 'scss/app.scss',
+    DEST  = '../assets/css/',
+    WATCH = 'scss/**/*.scss';
 
+function scss()
+{
+    return src(SRC)
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer(['last 2 versions'], {cascade: true}))
+        .pipe(cleanCss())
+        .pipe(dest(DEST));
+}
 
-gulp.task("css", function () {
-    return gulp.src("scss/app.scss")
-        .pipe(plumber())
-        .pipe(sass())
-        .pipe(autoprefixer({
-            overrideBrowserslist: ['last 2 versions'],
-            cascade             : false
-        }))
-        .pipe(gulp.dest("../assets/css/"))
-        .pipe(server.stream());
-});
+function watcher()
+{
+    watch(WATCH, scss);
+}
 
-
-gulp.task("refresh", function (done) {
-    server.reload();
-    done();
-});
-
-
-gulp.task("server", function () {
-    server.init({
-        proxy         : 'newspaper.loc/',
-        open          : true,
-        cors          : true,
-        ui            : false,
-        snippetOptions: {
-            rule: {
-                match: /$/i,
-                fn   : function (snippet, match) {
-                    return snippet + match;
-                }
-            }
-        }
-    });
-
-    gulp.watch("scss/**/*.scss", gulp.series("css", "refresh"));
-});
-
-
-gulp.task("build", gulp.series("css"));
-gulp.task("start", gulp.series("build", "server"));
+exports.default = series(scss, watcher);
