@@ -4,28 +4,34 @@ $fields = get_fields();
 ?>
 
     <article class="article">
-        <div class="article__head" style="background-image: url(<?php echo get_template_directory_uri() . '/assets/images/girl_with_laptop.jpg' ?>)">
-            <div class="article__title">
-                <h1>
-                    <?php echo $fields['home_title'] ?>
-                </h1>
+        <div class="intro">
+            <div class="article__head" style="background-image: url(<?php echo get_template_directory_uri() . '/assets/images/girl_with_laptop.jpg' ?>)">
+                <div class="article__title">
+                    <h1>
+                        <?php echo $fields['home_title'] ?>
+                    </h1>
+                </div>
             </div>
         </div>
-        <div class="article__about">
-            <div class="article__subtitle">
+        <div class="section">
+            <div class="article__about">
+                <div class="article__subtitle">
+                    <h2>
+                        <?php echo $fields['home_subtitle'] ?>
+                    </h2>
+                </div>
+                <div class="article__desc">
+                    <?php echo $fields['home_description'] ?>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="article__partners">
                 <h2>
-                    <?php echo $fields['home_subtitle'] ?>
+                    <?php _e('A few of our favorites', 'newspaper') ?>
                 </h2>
+                <?php get_template_part('templates/components/partners') ?>
             </div>
-            <div class="article__desc">
-                <?php echo $fields['home_description'] ?>
-            </div>
-        </div>
-        <div class="article__partners">
-            <h2>
-                <?php _e('A few of our favorites', 'newspaper') ?>
-            </h2>
-            <?php get_template_part('templates/components/partners') ?>
         </div>
     </article>
 

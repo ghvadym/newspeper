@@ -60,6 +60,10 @@ h3 {
 h1 {
     font-size: 3rem;
     text-align: center;
+
+    @media (max-width: $mobile-resolution) {
+        font-size: 2rem;
+    }
 }
 
 h2 {
@@ -95,10 +99,14 @@ blockquote {
     padding: 0 20px;
 }
 
+.section {
+    padding: 30px 0;
+}
+
 .main {
     display: flex;
     justify-content: space-between;
-    padding: 100px 20px 100px;
+    padding: 100px 20px 20px 20px;
     @extend .container;
 
     @media (max-width: $laptop-resolution) {

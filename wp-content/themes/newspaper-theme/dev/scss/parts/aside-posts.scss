@@ -3,19 +3,31 @@
 
     .post {
 
-        @media (max-width: $laptop-resolution) {
-            &__list {
+
+        &__list {
+            @media (max-width: $laptop-resolution) {
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr;
                 grid-gap: 30px;
             }
+
+            @media (max-width: $mobile-resolution) {
+                grid-template-columns: 1fr;
+            }
         }
 
-        @media (min-width: $laptop-resolution + 1) {
-            &__item {
+
+        &__item {
+            @media (min-width: $laptop-resolution + 1) {
                 &:not(:last-child) {
                     margin-bottom: 30px;
                 }
+            }
+
+            @media (max-width: $mobile-resolution) {
+                max-width: 320px;
+                width: 100%;
+                margin: 0 auto;
             }
         }
 

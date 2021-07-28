@@ -7,7 +7,7 @@ $args = [
 $terms = get_terms( $args );
 ?>
 
-<div class="terms__list">
+<div class="terms__list owl-carousel">
     <?php foreach( $terms as $term ) : ?>
         <div class="term__item">
             <a href="<?php echo get_term_link( $term->term_id ) ?>" class="term__img">

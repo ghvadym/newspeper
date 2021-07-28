@@ -21,6 +21,12 @@
             <div class="nav__menu">
                 <?php wp_nav_menu(['theme_location' => 'main_header']) ?>
             </div>
+            <div class="nav__burger">
+                <div class="burger__item">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
         </div>
     </div>
 </div>
