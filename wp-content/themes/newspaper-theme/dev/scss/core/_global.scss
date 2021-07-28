@@ -59,7 +59,6 @@ h3 {
 
 h1 {
     font-size: 3rem;
-    line-height: 4rem;
     text-align: center;
 }
 
@@ -73,6 +72,7 @@ h3 {
 
 blockquote {
     font-weight: 500;
+    text-align: center;
 }
 
 .logo {
@@ -100,6 +100,10 @@ blockquote {
     justify-content: space-between;
     padding: 100px 20px 100px;
     @extend .container;
+
+    @media (max-width: $laptop-resolution) {
+        flex-direction: column;
+    }
 }
 
 body {
