@@ -46,7 +46,7 @@ article.archive {
     @media (max-width: $mobile-resolution) {
         .post__list {
             .post__item:not(:last-child) {
-                margin-bottom: 30px;
+                margin-bottom: 20px;
             }
         }
     }

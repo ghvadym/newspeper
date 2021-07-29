@@ -1,5 +1,7 @@
 .aside {
-    flex: 0 0 250px;
+    @media (min-width: $laptop-resolution-portrait + 1) {
+        flex: 0 0 250px;
+    }
 
     .post {
 

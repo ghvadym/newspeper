@@ -15,4 +15,8 @@
             cursor: unset;
         }
     }
+
+    @media (max-width: $laptop-resolution-portrait) {
+        text-align: center;
+    }
 }

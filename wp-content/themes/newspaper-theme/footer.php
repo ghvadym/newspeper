@@ -4,7 +4,7 @@ $categories = get_terms('categories', ['hide_empty' => true]);
 ?>
 </main>
 
-<div id="footer">
+<footer id="footer">
     <div class="container">
         <div class="footer__nav">
             <div class="row">
@@ -49,7 +49,7 @@ $categories = get_terms('categories', ['hide_empty' => true]);
             </div>
         </div>
     </div>
-</div>
+</footer>
 
 </body>
 </html>

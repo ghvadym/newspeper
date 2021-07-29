@@ -15,6 +15,12 @@ $query = new WP_Query($args);
 ?>
 
     <aside class="aside">
+        <div class="filter__head">
+            <h2 class="filter__title">Use Filter</h2>
+            <div class="filter__btn">
+                <?php get_template_part('/assets/icons/svg', 'pin') ?>
+            </div>
+        </div>
         <div class="news-filter">
             <div class="news-filter__cat">
                 <?php if (!empty($labels)) : ?>
@@ -45,6 +51,9 @@ $query = new WP_Query($args);
             <?php endif; ?>
 
             <a href="<?php wp_get_current_url() ?>" class="news-filter__clear">Clear filter</a>
+            <div class="btn-close">
+                <?php get_template_part('/assets/icons/svg', 'close') ?>
+            </div>
         </div>
     </aside>
 

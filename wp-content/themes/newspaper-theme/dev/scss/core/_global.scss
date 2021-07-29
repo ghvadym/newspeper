@@ -90,6 +90,21 @@ blockquote {
     &:hover {
         color: rgba(0, 0, 0, 0.5);
     }
+
+    @media (max-width: $laptop-resolution-portrait) {
+        font-size: 1.2rem;
+        color: rgba(255,255,255,1);
+
+        br {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: $laptop-resolution-portrait) {
+    #wpadminbar {
+        display: none;
+    }
 }
 
 .container {
@@ -106,30 +121,43 @@ blockquote {
 .main {
     display: flex;
     justify-content: space-between;
-    padding: 100px 20px 50px 20px;
     @extend .container;
+
+    @media (min-width: $laptop-resolution + 1) {
+        padding: 100px 20px 50px 20px;
+    }
 
     @media (max-width: $laptop-resolution) {
         flex-direction: column;
     }
+
+    @media (max-width: $laptop-resolution-portrait) {
+        padding: 60px 20px;
+    }
 }
 
-body {
-    &.logged-in {
-        #navigation {
-            top: 30px;
-        }
+@media (min-width: $laptop-resolution-portrait) {
+    body {
+        &.logged-in {
+            #navigation {
+                top: 30px;
+            }
 
-        .main {
-            padding-top: 120px;
-        }
+            .main {
+                padding-top: 120px;
+            }
 
-        &.single {
-            .aside .post__list {
-                top: 113px;
+            &.single {
+                .aside .post__list {
+                    top: 113px;
+                }
             }
         }
     }
+}
+
+.no-scroll {
+    overflow: hidden;
 }
 
 .flex-center {
