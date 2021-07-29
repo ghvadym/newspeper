@@ -6,28 +6,36 @@ $args = [
     'post_status'    => 'publish',
     'posts_per_page' => get_option('posts_per_page'),
     'paged'          => $paged,
+    'post_type'      => get_post_type($post->ID),
 ];
 
-if (is_archive()) {
-    $args['post_type'] = get_post_type($post->ID);
-}
-
+/*Authors page*/
 $personId = $_GET['id'] ?? '';
 if ($personId) {
     $args['meta_key'] = 'author_name';
     $args['meta_value'] = $personId;
 }
 
-$term_list = wp_get_post_terms($post->ID, 'label', array("fields" => "all"));
-
-if (is_tax()) {
-    $args['tax_query'] = [
-        [
-            'taxonomy' => 'label',
-            'field'    => 'slug',
-            'terms'    => $term_list[0]->slug,
-        ]
-    ];
+/*Taxonomy Term page*/
+switch (get_query_var('taxonomy')) {
+    case 'label' :
+        $args['tax_query'] = [
+            [
+                'taxonomy' => 'label',
+                'field'    => 'slug',
+                'terms'    => get_query_var('term'),
+            ],
+        ];
+        break;
+    case 'categories' :
+        $args['tax_query'] = [
+            [
+                'taxonomy' => 'categories',
+                'field'    => 'slug',
+                'terms'    => get_query_var('term'),
+            ],
+        ];
+        break;
 }
 
 $query = new WP_Query($args);
@@ -47,7 +55,6 @@ $query = new WP_Query($args);
             <?php echo paginate_links([
                 'current'   => $paged,
                 'total'     => $query->max_num_pages,
-                'format'    => '?page=%#%',
                 'prev_next' => false,
             ]); ?>
         </div>

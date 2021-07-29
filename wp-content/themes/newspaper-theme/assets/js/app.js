@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
             data.append('action', 'archive_filter');
             data.append('filter_data', arrayInputs);
 
-            var response = await fetch(ajax,{
+            var response = await fetch(ajax, {
                 method: 'POST',
                 body  : data
             });
@@ -75,18 +75,18 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-(function($){
-    $(document).ready(function() {
+(function ($) {
+    $(document).ready(function () {
         if ($(window).width() < 767) {
             $(".terms__list.owl-carousel").owlCarousel({
-                loop : true,
-                items: 1,
-                touchDrag: true,
-                margin: 20,
-                //nav: true,
-                //autoplay:false,
-                //smartSpeed: 2000,
-                //autoplayHoverPause: true,
+                loop              : true,
+                items             : 1,
+                touchDrag         : true,
+                margin            : 20,
+                nav               : false,
+                dots              : false,
+                autoplay          : true,
+                autoplayHoverPause: true,
             });
         }
     });

@@ -106,7 +106,7 @@ blockquote {
 .main {
     display: flex;
     justify-content: space-between;
-    padding: 100px 20px 20px 20px;
+    padding: 100px 20px 50px 20px;
     @extend .container;
 
     @media (max-width: $laptop-resolution) {
