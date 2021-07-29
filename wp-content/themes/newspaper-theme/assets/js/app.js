@@ -79,13 +79,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var filterBtn = document.querySelector('.filter__btn');
     var btnClose = document.querySelector('.btn-close');
-    filterBtn.onclick = () => {
-        filterWrap.classList.add('open');
-        body.classList.add('no-scroll');
-    }
-    btnClose.onclick = () => {
-        filterWrap.classList.remove('open');
-        body.classList.remove('no-scroll');
+    if (filterBtn) {
+        filterBtn.onclick = () => {
+            filterWrap.classList.add('open');
+            body.classList.add('no-scroll');
+        }
+        btnClose.onclick = () => {
+            filterWrap.classList.remove('open');
+            body.classList.remove('no-scroll');
+        }
     }
 });
 
