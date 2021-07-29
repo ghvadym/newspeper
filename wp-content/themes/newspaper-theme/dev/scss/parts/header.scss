@@ -46,8 +46,10 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            left: 20px;
+            left: 0;
             animation: fadeIn ease-in-out 500ms;
+            text-align: center;
+            width: 100%                         ;
 
             .menu-item:not(:last-child) {
                 margin-bottom: 25px;

@@ -5,7 +5,9 @@ get_header();
     <article class="article authors">
         <?php if (have_posts()) : ?>
             <?php while (have_posts()) :the_post(); ?>
-                <div class="article__head" style="background-image: url(<?php the_post_thumbnail_url(); ?>)"></div>
+                <div class="article__head">
+                    <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title() ?>">
+                </div>
                 <div class="article__title">
                     <h1><?php the_title() ?></h1>
                     <?php if (get_the_excerpt()) : ?>
@@ -42,8 +44,9 @@ get_header();
         </div>
 
         <div class="author-posts">
-            <a class="author-posts__link" href="<?php echo '/news/?id=' . get_the_ID() ?>">
-                <?php _e('Author posts', 'newspaper') ?>
+            <a class="author-posts__link"
+               href="<?php echo get_post_type_archive_link('news') . '?id=' . get_the_ID() ?>">
+                <?php _e('All Author posts', 'newspaper') ?>
             </a>
         </div>
     </article>

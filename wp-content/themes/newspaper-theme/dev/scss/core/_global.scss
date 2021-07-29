@@ -60,9 +60,11 @@ h3 {
 h1 {
     font-size: 3rem;
     text-align: center;
+    line-height: 4rem;
 
     @media (max-width: $mobile-resolution) {
         font-size: 2rem;
+        line-height: 3rem;
     }
 }
 

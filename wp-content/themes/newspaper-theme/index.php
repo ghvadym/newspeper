@@ -3,7 +3,7 @@ get_header();
 $fields = get_fields();
 ?>
 
-    <article class="article">
+    <article class="article home">
         <div class="intro">
             <div class="article__head" style="background-image: url(<?php echo get_template_directory_uri() . '/assets/images/girl_with_laptop.jpg' ?>)">
                 <div class="article__title">

@@ -11,7 +11,9 @@ get_header();
                         <blockquote><?php echo '&#10077 ' . get_the_excerpt() . ' &#10077;' ?></blockquote>
                     <?php endif; ?>
                 </div>
-                <div class="article__head" style="background-image: url(<?php the_post_thumbnail_url(); ?>)"></div>
+                <div class="article__head">
+                    <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title() ?>">
+                </div>
                 <div class="article__body">
                     <?php the_content() ?>
                 </div>
