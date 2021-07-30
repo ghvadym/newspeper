@@ -3,12 +3,6 @@
     margin: 0;
 }
 
-.background {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-
 body {
     margin: 0;
     padding: 0;
@@ -60,11 +54,9 @@ h3 {
 h1 {
     font-size: 3rem;
     text-align: center;
-    line-height: 4rem;
 
     @media (max-width: $mobile-resolution) {
         font-size: 2rem;
-        line-height: 3rem;
     }
 }
 
@@ -79,6 +71,24 @@ h3 {
 blockquote {
     font-weight: 500;
     text-align: center;
+}
+
+.img-contain {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.img-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.background {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .logo {

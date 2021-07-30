@@ -30,6 +30,7 @@
                 background: linear-gradient(90deg, rgba(55, 7, 53, 1) 15%, rgba(225, 26, 147, 1) 96%);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
+
             }
 
             blockquote {
@@ -57,6 +58,14 @@
                         color: rgba(0, 0, 0, 0.5);
                     }
                 }
+            }
+        }
+
+        &__content {
+            img {
+                @extend .img-contain;
+                max-height: 500px;
+                margin: 30px 0;
             }
         }
 
