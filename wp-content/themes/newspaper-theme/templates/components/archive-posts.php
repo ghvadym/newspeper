@@ -4,11 +4,11 @@
     </a>
     <div class="post__content">
         <div class="post__title">
-            <?php echo strlen($post->post_title) > 60 ? substr($post->post_title, 0, 60) . '...' : $post->post_title ?>
+            <?php echo strlen($post->post_title) > 40 ? substr($post->post_title, 0, 40) . '...' : $post->post_title ?>
         </div>
-        <?php if(!empty($post->post_excerpt)) : ?>
+        <?php if(has_excerpt($post->ID)) : ?>
             <div class="post__desc">
-                <?php echo strlen($post->post_excerpt) > 100 ? substr($post->post_excerpt, 0, 100) . '...' : $post->post_excerpt ?>
+                <?php echo strlen($post->post_excerpt) > 70 ? substr($post->post_excerpt, 0, 70) . '...' : $post->post_excerpt ?>
             </div>
         <?php endif; ?>
 
@@ -19,6 +19,9 @@
                     <?php echo $termsLabel[0]->name ?>
                 </a>
             <?php endif ?>
+
+            <?php echo has_term('',  'categories') &&
+                       has_term('', 'label') ? "<b> / </b>" : '' ; ?>
 
             <?php if (has_term('', 'categories')) :
                 $termsCat = get_the_terms($post, 'categories'); ?>

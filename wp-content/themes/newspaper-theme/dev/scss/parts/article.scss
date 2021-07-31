@@ -64,6 +64,10 @@
         h2 {
             text-align: center;
             margin-bottom: 40px;
+
+            @media (max-width: $laptop-resolution-portrait) {
+                margin-bottom: 10px;
+            }
         }
 
         .terms {
@@ -74,11 +78,11 @@
         }
 
         .term__img {
-            height: 60px;
+            height: 40px;
             width: 100px;
             display: block;
 
-            @media (max-width: $mobile-resolution) {
+            @media (max-width: $laptop-resolution-portrait) {
                 height: 80px;
                 width: 170px;
                 margin: 0 auto;

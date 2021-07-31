@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    //Pagination on archive page
     var ajax = myajax.ajaxurl;
     var postsWrap = document.querySelector('.archive .post__list');
     var paginas = document.querySelectorAll('.archive  .pagination .page-numbers');
@@ -37,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    //Filter taxes by terms
     var termsInput = document.querySelectorAll('.news-filter__item > input');
     var postsWrapper = document.querySelector('.archive.filter .post__list');
     var filterWrap = document.querySelector('.news-filter');
@@ -77,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    //Mobile filter open on click button
     var filterBtn = document.querySelector('.filter__btn');
     var btnClose = document.querySelector('.btn-close');
     if (filterBtn) {
@@ -89,17 +92,20 @@ document.addEventListener('DOMContentLoaded', function () {
             body.classList.remove('no-scroll');
         }
     }
+
+    //Mobile burger menu toggle
+    var burgerBtn = document.querySelector('.nav__burger');
+    var navMenu = document.querySelector('#navigation .nav');
+    burgerBtn.onclick = () => {
+        navMenu.classList.toggle('open');
+        body.classList.toggle('no-scroll');
+    }
 });
 
 
 (function ($) {
     $(document).ready(function () {
-        $('.nav__burger').on('click', () => {
-            $('#navigation .nav').toggleClass('open');
-            $('body').toggleClass('no-scroll');
-        });
-
-        if ($(window).width() < 767) {
+        if ($(window).width() < 769) {
             $(".terms__list.owl-carousel").owlCarousel({
                 loop              : true,
                 items             : 1,

@@ -22,7 +22,7 @@ get_header();
 
             $args = [
                 'post_type'    => 'news',
-                'numberposts'  => 9,
+                'numberposts'  => 4,
                 'post_status'  => 'publish',
                 'orderby'      => 'date',
                 'order'        => 'desc',

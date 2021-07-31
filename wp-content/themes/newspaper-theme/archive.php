@@ -7,6 +7,16 @@ $args = [
     'posts_per_page' => get_option('posts_per_page'),
     'paged'          => $paged,
     'post_type'      => get_post_type($post->ID),
+    'tax_query'      => [
+        [
+            'taxonomy' => 'label',
+            'operator' => 'EXISTS',
+        ],
+        [
+            'taxonomy' => 'categories',
+            'operator' => 'EXISTS',
+        ]
+    ],
 ];
 
 /*Authors page*/
@@ -38,8 +48,7 @@ switch (get_query_var('taxonomy')) {
         break;
 }
 
-$query = new WP_Query($args);
-?>
+$query = new WP_Query($args); ?>
 
     <article class="archive <?php echo get_post_type($post->ID) === 'authors' ? 'authors' : '' ?>">
         <?php if ($query->have_posts()) : ?>

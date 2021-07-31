@@ -4,8 +4,6 @@
     }
 
     .post {
-
-
         &__list {
             @media (max-width: $laptop-resolution) {
                 display: grid;
@@ -35,6 +33,10 @@
 
         &__title {
             margin-bottom: 0;
+        }
+
+        &__content {
+            padding: 10px;
         }
     }
 }

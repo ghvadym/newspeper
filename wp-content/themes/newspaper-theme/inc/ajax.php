@@ -16,6 +16,16 @@ function archive_pagination()
         'posts_per_page' => $postsPerPage,
         'post_type'      => 'news',
         'offset'         => $offset,
+        'tax_query'      => [
+            [
+                'taxonomy' => 'label',
+                'operator' => 'EXISTS',
+            ],
+            [
+                'taxonomy' => 'categories',
+                'operator' => 'EXISTS',
+            ]
+        ],
     ];
 
     queryAjax($args);
@@ -31,6 +41,16 @@ function archive_filter()
         'post_status'    => 'publish',
         'posts_per_page' => -1,
         'post_type'      => 'news',
+        'tax_query'      => [
+            [
+                'taxonomy' => 'label',
+                'operator' => 'EXISTS',
+            ],
+            [
+                'taxonomy' => 'categories',
+                'operator' => 'EXISTS',
+            ]
+        ],
     ];
 
     foreach ($termsArray as $term) {

@@ -34,49 +34,42 @@
     }
 
     &__content {
-        padding: 10px;
+        padding: 10px 10px 30px;
         color: $font-color;
     }
 
     &__title {
         font-style: italic;
-        margin-bottom: 10px;
     }
 
     &__desc {
-        margin-bottom: 15px;
+        margin: 10px 0 0;
     }
 
     &__label {
         display: flex;
+        align-items: center;
         position: absolute;
-        bottom: 10px;
+        bottom: 7px;
         left: 50%;
         transform: translateX(-50%);
 
         a {
             display: block;
-            padding: 0 5px;
             font-size: 1rem;
             color: rgba(0, 0, 0, 0.8);
             font-style: italic;
             text-align: center;
             transition: all 0.3s;
 
-            &.label__cat {
-                position: relative;
-
-                &:after {
-                    content: '|';
-                    position: absolute;
-                    left: -2.5px;
-                    top: 0;
-                }
-            }
-
             &:hover {
                 color: rgba(0, 0, 0, 0.5);
             }
+        }
+
+        b {
+            font-size: 0.7rem;
+            padding: 0 3px;
         }
     }
 }

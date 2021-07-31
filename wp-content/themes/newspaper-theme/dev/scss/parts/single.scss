@@ -67,6 +67,7 @@
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
+                    object-position: 50% 20%;
                 }
             }
         }
@@ -91,6 +92,10 @@
 
             .article__title {
                 padding: 20px 0 50px;
+
+                @media (max-width: $laptop-resolution-portrait) {
+                    padding: 20px 0;
+                }
 
                 h1 {
                     margin: 0;
@@ -147,6 +152,10 @@
         .post__list {
             position: sticky;
             top: 100px;
+        }
+
+        .post__content {
+            padding: 10px;
         }
     }
 }

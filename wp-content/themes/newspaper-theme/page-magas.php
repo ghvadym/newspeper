@@ -10,6 +10,16 @@ $args = [
     'post_status'    => 'publish',
     'posts_per_page' => 9,
     'post_type'      => 'news',
+    'tax_query'      => [
+        [
+            'taxonomy' => 'label',
+            'operator' => 'EXISTS',
+        ],
+        [
+            'taxonomy' => 'categories',
+            'operator' => 'EXISTS',
+        ]
+    ],
 ];
 $query = new WP_Query($args);
 ?>

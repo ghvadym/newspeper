@@ -7,7 +7,7 @@ get_header();
             <?php while (have_posts()) :the_post(); ?>
                 <div class="article__title">
                     <h1><?php the_title() ?></h1>
-                    <?php if (get_the_excerpt()) : ?>
+                    <?php if (has_excerpt(get_the_ID())) : ?>
                         <blockquote><?php echo '&#10077 ' . get_the_excerpt() . ' &#10077;' ?></blockquote>
                     <?php endif; ?>
                 </div>

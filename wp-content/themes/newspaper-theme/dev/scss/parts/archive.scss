@@ -91,12 +91,6 @@ article.archive {
         }
     }
 
-    &:not(.authors) {
-        .post__content {
-            padding: 10px 10px 30px;
-        }
-    }
-
     &.authors {
         .post__list {
             grid-template-columns: 1fr 1fr 1fr 1fr;
