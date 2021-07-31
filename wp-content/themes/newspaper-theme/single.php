@@ -2,7 +2,7 @@
 get_header();
 ?>
 
-    <article class="article">
+    <article class="article news">
         <?php if (have_posts()) : ?>
             <?php while (have_posts()) :the_post(); ?>
                 <div class="article__title">
