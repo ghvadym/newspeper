@@ -42,7 +42,7 @@ get_header();
 
         <div class="author-posts">
             <a class="author-posts__link"
-               href="<?php echo get_post_type_archive_link('magazines') . '?id=' . get_the_ID() ?>">
+               href="<?php echo '/archive/' . '?id=' . get_the_ID() ?>">
                 <?php _e('All Author posts', 'newspaper') ?>
             </a>
         </div>

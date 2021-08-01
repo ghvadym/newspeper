@@ -6,7 +6,7 @@ $args = [
     'post_status'    => 'publish',
     'posts_per_page' => get_option('posts_per_page'),
     'paged'          => $paged,
-    'post_type'      => get_post_type($post->ID),
+    'post_type'      => 'magazines',
     'tax_query'      => [
         [
             'taxonomy' => 'label',
@@ -19,12 +19,27 @@ $args = [
     ],
 ];
 
-/*Authors page*/
-/*$personId = $_GET['id'] ?? '';
-if ($personId) {
-    $args['meta_key'] = 'author_name';
-    $args['meta_value'] = $personId;
-}*/
+/*Taxonomy Term page*/
+switch (get_query_var('taxonomy')) {
+    case 'label' :
+        $args['tax_query'] = [
+            [
+                'taxonomy' => 'label',
+                'field'    => 'slug',
+                'terms'    => get_query_var('term'),
+            ],
+        ];
+        break;
+    case 'categories' :
+        $args['tax_query'] = [
+            [
+                'taxonomy' => 'categories',
+                'field'    => 'slug',
+                'terms'    => get_query_var('term'),
+            ],
+        ];
+        break;
+}
 
 $query = new WP_Query($args); ?>
 

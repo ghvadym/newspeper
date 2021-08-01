@@ -1,6 +1,6 @@
 <?php
 $args = [
-    'taxonomy' => 'label',
+    'taxonomy' => ['label', 'labels-newspapers'],
     'hide_empty' => false,
 ];
 

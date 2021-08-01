@@ -78,15 +78,10 @@
         }
 
         .term__img {
-            height: 40px;
-            width: 100px;
+            height: 80px;
+            width: 170px;
+            margin: 0 auto;
             display: block;
-
-            @media (max-width: $laptop-resolution-portrait) {
-                height: 80px;
-                width: 170px;
-                margin: 0 auto;
-            }
 
             img {
                 width: 100%;

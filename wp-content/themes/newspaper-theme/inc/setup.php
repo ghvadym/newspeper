@@ -37,7 +37,7 @@ add_action('after_setup_theme', function () {
 
 });
 
-add_theme_support('post-thumbnails', ['news', 'authors']);
+add_theme_support('post-thumbnails', ['newspapers', 'magazines', 'authors']);
 
 if (function_exists('acf_add_options_page')) {
     acf_add_options_page([
