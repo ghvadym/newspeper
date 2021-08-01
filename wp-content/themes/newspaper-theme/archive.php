@@ -7,16 +7,6 @@ $args = [
     'posts_per_page' => get_option('posts_per_page'),
     'paged'          => $paged,
     'post_type'      => get_post_type($post->ID),
-    'tax_query'      => [
-        [
-            'taxonomy' => 'label',
-            'operator' => 'EXISTS',
-        ],
-        [
-            'taxonomy' => 'categories',
-            'operator' => 'EXISTS',
-        ]
-    ],
 ];
 
 /*Authors page*/
@@ -26,9 +16,49 @@ if ($personId) {
     $args['meta_value'] = $personId;
 }*/
 
+switch (get_query_var('taxonomy')) {
+    case 'label' :
+        $args['tax_query'] = [
+            [
+                'taxonomy' => 'label',
+                'field'    => 'slug',
+                'terms'    => get_query_var('term'),
+            ],
+        ];
+        break;
+    case 'categories' :
+        $args['tax_query'] = [
+            [
+                'taxonomy' => 'categories',
+                'field'    => 'slug',
+                'terms'    => get_query_var('term'),
+            ],
+        ];
+        break;
+    case 'labels-newspapers' :
+        $args['tax_query'] = [
+            [
+                'taxonomy' => 'labels-newspapers',
+                'field'    => 'slug',
+                'terms'    => get_query_var('term'),
+            ],
+        ];
+        break;
+    case 'categories-newspapers' :
+        $args['tax_query'] = [
+            [
+                'taxonomy' => 'categories-newspapers',
+                'field'    => 'slug',
+                'terms'    => get_query_var('term'),
+            ],
+        ];
+        break;
+}
+
 $query = new WP_Query($args); ?>
 
     <article class="archive">
+        <h1 class="archive__title"><?php echo get_the_archive_title() ?></h1>
         <?php if ($query->have_posts()) : ?>
             <div class="post__list">
                 <?php while ($query->have_posts()) : $query->the_post(); ?>

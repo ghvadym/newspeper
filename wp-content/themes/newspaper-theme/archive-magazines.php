@@ -20,7 +20,7 @@ $args = [
 ];
 
 /*Taxonomy Term page*/
-switch (get_query_var('taxonomy')) {
+/*switch (get_query_var('taxonomy')) {
     case 'label' :
         $args['tax_query'] = [
             [
@@ -39,7 +39,7 @@ switch (get_query_var('taxonomy')) {
             ],
         ];
         break;
-}
+}*/
 
 $query = new WP_Query($args); ?>
 

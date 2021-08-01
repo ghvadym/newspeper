@@ -19,13 +19,28 @@
                     <?php echo $termsLabel[0]->name ?>
                 </a>
             <?php endif ?>
+            <?php if (has_term('', 'labels-newspapers')) :
+                $termsLabel = get_the_terms($post, 'labels-newspapers'); ?>
+                <a class="label__mag" href="<?php echo get_term_link($termsLabel[0]->term_id, 'labels-newspapers') ?>">
+                    <?php echo $termsLabel[0]->name ?>
+                </a>
+            <?php endif ?>
 
             <?php echo has_term('',  'categories') &&
                        has_term('', 'label') ? "<b> / </b>" : '' ; ?>
 
+            <?php echo has_term('',  'categories-newspapers') &&
+                       has_term('', 'labels-newspapers') ? "<b> / </b>" : '' ; ?>
+
             <?php if (has_term('', 'categories')) :
                 $termsCat = get_the_terms($post, 'categories'); ?>
                 <a class="label__cat" href="<?php echo get_term_link($termsCat[0]->term_id, 'categories') ?>">
+                    <?php echo $termsCat[0]->name ?>
+                </a>
+            <?php endif ?>
+            <?php if (has_term('', 'categories-newspapers')) :
+                $termsCat = get_the_terms($post, 'categories-newspapers'); ?>
+                <a class="label__cat" href="<?php echo get_term_link($termsCat[0]->term_id, 'categories-newspapers') ?>">
                     <?php echo $termsCat[0]->name ?>
                 </a>
             <?php endif ?>

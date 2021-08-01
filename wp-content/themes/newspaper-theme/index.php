@@ -30,7 +30,7 @@ $fields = get_fields();
                 <h2>
                     <?php _e('A few of our favorites', 'newspaper') ?>
                 </h2>
-                <?php //get_template_part('templates/components/partners') ?>
+                <?php get_template_part('templates/components/partners') ?>
             </div>
         </div>
     </article>

@@ -26,3 +26,7 @@ function wrap_content_div( $content )
 function wp_get_current_url() {
     return home_url( $_SERVER['REQUEST_URI'] );
 }
+
+add_filter('get_the_archive_title', function( $title ){
+    return preg_replace('~^[^:]+: ~', '', $title );
+});

@@ -1,5 +1,9 @@
 article.archive {
 
+    .archive__title {
+        margin-bottom: 30px;
+    }
+
     @media (min-width: $mobile-resolution) {
         .post__list {
             display: grid;

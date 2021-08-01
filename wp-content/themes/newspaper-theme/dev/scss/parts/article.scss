@@ -70,16 +70,27 @@
             }
         }
 
-        .terms {
-            &__list {
-                display: flex;
-                justify-content: center;
+        .terms__list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .term__item {
+            margin: 20px;
+            flex: 1 1 100px;
+
+            &:hover {
+                .term__img {
+                    img {
+                        filter: opacity(0.7);
+                    }
+                }
             }
         }
 
         .term__img {
-            height: 80px;
-            width: 170px;
+            height: 50px;
             margin: 0 auto;
             display: block;
 
@@ -89,18 +100,6 @@
                 object-fit: contain;
                 filter: opacity(1);
                 transition: all 0.3s;
-            }
-        }
-
-        .term__item {
-            margin: 0 20px;
-
-            &:hover {
-                .term__img {
-                    img {
-                        filter: opacity(0.7);
-                    }
-                }
             }
         }
     }

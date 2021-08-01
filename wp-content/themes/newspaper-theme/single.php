@@ -18,14 +18,14 @@ get_header();
                     <?php the_content() ?>
                 </div>
                 <div class="article__data">
-                    <?php if (has_term('', 'label')): ?>
+                    <?php if (has_term('', 'labels-newspapers')): ?>
                         <div class="data__item">
-                            <?php _e('Label: ', 'newspaper') . the_terms(get_the_ID(), 'label') ?>
+                            <?php _e('Label: ', 'newspaper') . the_terms(get_the_ID(), 'labels-newspapers') ?>
                         </div>
                     <?php endif; ?>
-                    <?php if (has_term('', 'categories')): ?>
+                    <?php if (has_term('', 'categories-newspapers')): ?>
                         <div class="data__item">
-                            <?php _e('Categories: ', 'newspaper') . the_terms(get_the_ID(), 'categories') ?>
+                            <?php _e('Categories: ', 'newspaper') . the_terms(get_the_ID(), 'categories-newspapers') ?>
                         </div>
                     <?php endif; ?>
                     <?php if (get_field('author_name', get_the_ID())) :
