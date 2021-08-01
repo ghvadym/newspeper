@@ -6,13 +6,13 @@ add_action('init', 'createPostTypeAuthor');
 function createPostTypeNews()
 {
     $labels = [
-        'name'          => __('News', 'newspaper'),
-        'singular_name' => __('News', 'newspaper'),
-        'add_new_item'  => __('Add New News', 'newspaper'),
-        'view_item'     => __('View News', 'newspaper'),
-        'search_items'  => __('Search News', 'newspaper'),
+        'name'          => __('Magazines', 'newspaper'),
+        'singular_name' => __('Magazines', 'newspaper'),
+        'add_new_item'  => __('Add New Magazines', 'newspaper'),
+        'view_item'     => __('View Magazines', 'newspaper'),
+        'search_items'  => __('Search Magazines', 'newspaper'),
         'not_found'     => __('No News found', 'newspaper'),
-        'menu_name'     => __('News', 'newspaper'),
+        'menu_name'     => __('Magazines', 'newspaper'),
     ];
     $args = [
         'labels'        => $labels,
@@ -25,7 +25,7 @@ function createPostTypeNews()
         'supports'      => ['title', 'excerpt', 'thumbnail', 'editor'],
     ];
 
-    register_post_type('news', $args);
+    register_post_type('magazines', $args);
 }
 
 function createPostTypeAuthor()
@@ -81,7 +81,7 @@ function createTaxonomyCategory()
         'has_archive'  => true,
     ];
 
-    register_taxonomy('categories', 'news', $args);
+    register_taxonomy('categories', 'magazines', $args);
 }
 
 function createTaxonomyLabels()
@@ -108,5 +108,5 @@ function createTaxonomyLabels()
         'has_archive'  => true,
     ];
 
-    register_taxonomy('label', 'news', $args);
+    register_taxonomy('label', 'magazines', $args);
 }

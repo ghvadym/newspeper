@@ -40,7 +40,7 @@ $fields = get_fields();
             <?php
             $post = get_post();
             $args = [
-                'post_type'   => 'news',
+                'post_type'   => 'magazines',
                 'numberposts' => 3,
                 'post_status' => 'publish',
                 'orderby'     => 'date',

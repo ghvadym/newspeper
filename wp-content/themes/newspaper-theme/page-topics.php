@@ -1,6 +1,6 @@
 <?php
 /*
-  * Template name: Magazines
+  * Template name: Topics
   */
 get_header();
 
@@ -9,7 +9,7 @@ $categories = get_terms('categories', ['hide_empty' => true]);
 $args = [
     'post_status'    => 'publish',
     'posts_per_page' => 9,
-    'post_type'      => 'news',
+    'post_type'      => 'magazines',
     'tax_query'      => [
         [
             'taxonomy' => 'label',

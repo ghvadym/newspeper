@@ -10,9 +10,6 @@ get_header();
                 </div>
                 <div class="article__title">
                     <h1><?php the_title() ?></h1>
-                    <?php if (get_the_excerpt()) : ?>
-                        <blockquote><?php echo '&#10077 ' . get_the_excerpt() . ' &#10077;' ?></blockquote>
-                    <?php endif; ?>
                 </div>
             <?php endwhile; ?>
         <?php endif ?>
@@ -21,7 +18,7 @@ get_header();
             $post = get_post();
 
             $args = [
-                'post_type'    => 'news',
+                'post_type'    => 'magazines',
                 'numberposts'  => 4,
                 'post_status'  => 'publish',
                 'orderby'      => 'date',
@@ -45,7 +42,7 @@ get_header();
 
         <div class="author-posts">
             <a class="author-posts__link"
-               href="<?php echo get_post_type_archive_link('news') . '?id=' . get_the_ID() ?>">
+               href="<?php echo get_post_type_archive_link('magazines') . '?id=' . get_the_ID() ?>">
                 <?php _e('All Author posts', 'newspaper') ?>
             </a>
         </div>

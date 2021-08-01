@@ -14,7 +14,7 @@ function archive_pagination()
     $args = [
         'post_status'    => 'publish',
         'posts_per_page' => $postsPerPage,
-        'post_type'      => 'news',
+        'post_type'      => 'magazines',
         'offset'         => $offset,
         'tax_query'      => [
             [
@@ -40,7 +40,7 @@ function archive_filter()
     $args = [
         'post_status'    => 'publish',
         'posts_per_page' => -1,
-        'post_type'      => 'news',
+        'post_type'      => 'magazines',
         'tax_query'      => [
             [
                 'taxonomy' => 'label',
