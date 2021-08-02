@@ -13,17 +13,7 @@ $categoriesNews = get_terms('categories-newspapers', ['hide_empty' => true]);
 $args = [
     'post_status'    => 'publish',
     'posts_per_page' => 9,
-    'post_type'      => 'magazines',
-    'tax_query'      => [
-        [
-            'taxonomy' => 'label',
-            'operator' => 'EXISTS',
-        ],
-        [
-            'taxonomy' => 'categories',
-            'operator' => 'EXISTS',
-        ],
-    ],
+    'post_type'      => ['magazines', 'newspapers'],
 ];
 $query = new WP_Query($args);
 ?>

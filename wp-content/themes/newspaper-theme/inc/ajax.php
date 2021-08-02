@@ -40,17 +40,7 @@ function archive_filter()
     $args = [
         'post_status'    => 'publish',
         'posts_per_page' => -1,
-        'post_type'      => 'magazines',
-        'tax_query'      => [
-            [
-                'taxonomy' => 'label',
-                'operator' => 'EXISTS',
-            ],
-            [
-                'taxonomy' => 'categories',
-                'operator' => 'EXISTS',
-            ]
-        ],
+        'post_type'      => ['magazines', 'newspapers'],
     ];
 
     foreach ($termsArray as $term) {
