@@ -18,7 +18,7 @@ get_header();
             $post = get_post();
 
             $args = [
-                'post_type'    => 'magazines',
+                'post_type'    => ['magazines', 'newspapers'],
                 'numberposts'  => 4,
                 'post_status'  => 'publish',
                 'orderby'      => 'date',
@@ -40,9 +40,11 @@ get_header();
             wp_reset_postdata(); ?>
         </div>
 
+        <?php $authorsPostsPage = get_field('authors_posts_page', 'options');
+        $page = get_permalink($authorsPostsPage->ID); ?>
         <div class="author-posts">
             <a class="author-posts__link"
-               href="<?php echo '/archive/' . '?id=' . get_the_ID() ?>">
+               href="<?php echo $page . '?id=' . get_the_ID() ?>">
                 <?php _e('All Author posts', 'newspaper') ?>
             </a>
         </div>

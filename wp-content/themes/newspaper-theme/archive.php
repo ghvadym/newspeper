@@ -9,16 +9,9 @@ $args = [
     'post_type'      => get_post_type($post->ID),
 ];
 
-/*Authors page*/
-$personId = $_GET['id'] ?? '';
-if ($personId) {
-    $args['meta_key'] = 'author_name';
-    $args['meta_value'] = $personId;
-}
-
-switch (get_query_var('taxonomy')) {
-    case 'label' :
-        $args['tax_query'] = [
+switch (get_post_type(get_the_ID())) {
+    case 'magazines' :
+        $taxQuery = [
             [
                 'taxonomy' => 'label',
                 'operator' => 'EXISTS',
@@ -27,6 +20,25 @@ switch (get_query_var('taxonomy')) {
                 'taxonomy' => 'categories',
                 'operator' => 'EXISTS',
             ],
+        ];
+        break;
+    case 'newspapers' :
+        $taxQuery = [
+            [
+                'taxonomy' => 'labels-newspapers',
+                'operator' => 'EXISTS',
+            ],
+            [
+                'taxonomy' => 'categories-newspapers',
+                'operator' => 'EXISTS',
+            ],
+        ];
+        break;
+}
+
+switch (get_query_var('taxonomy')) {
+    case 'label' :
+        $taxQuery[] = [
             [
                 'taxonomy' => 'label',
                 'field'    => 'slug',
@@ -35,15 +47,7 @@ switch (get_query_var('taxonomy')) {
         ];
         break;
     case 'categories' :
-        $args['tax_query'] = [
-            [
-                'taxonomy' => 'label',
-                'operator' => 'EXISTS',
-            ],
-            [
-                'taxonomy' => 'categories',
-                'operator' => 'EXISTS',
-            ],
+        $taxQuery[] = [
             [
                 'taxonomy' => 'categories',
                 'field'    => 'slug',
@@ -52,15 +56,7 @@ switch (get_query_var('taxonomy')) {
         ];
         break;
     case 'labels-newspapers' :
-        $args['tax_query'] = [
-            [
-                'taxonomy' => 'labels-newspapers',
-                'operator' => 'EXISTS',
-            ],
-            [
-                'taxonomy' => 'categories-newspapers',
-                'operator' => 'EXISTS',
-            ],
+        $taxQuery[] = [
             [
                 'taxonomy' => 'labels-newspapers',
                 'field'    => 'slug',
@@ -69,15 +65,7 @@ switch (get_query_var('taxonomy')) {
         ];
         break;
     case 'categories-newspapers' :
-        $args['tax_query'] = [
-            [
-                'taxonomy' => 'labels-newspapers',
-                'operator' => 'EXISTS',
-            ],
-            [
-                'taxonomy' => 'categories-newspapers',
-                'operator' => 'EXISTS',
-            ],
+        $taxQuery[] = [
             [
                 'taxonomy' => 'categories-newspapers',
                 'field'    => 'slug',
@@ -86,6 +74,8 @@ switch (get_query_var('taxonomy')) {
         ];
         break;
 }
+
+$args['tax_query'] = $taxQuery;
 
 $query = new WP_Query($args); ?>
 
