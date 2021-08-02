@@ -19,28 +19,6 @@ $args = [
     ],
 ];
 
-/*Taxonomy Term page*/
-/*switch (get_query_var('taxonomy')) {
-    case 'label' :
-        $args['tax_query'] = [
-            [
-                'taxonomy' => 'label',
-                'field'    => 'slug',
-                'terms'    => get_query_var('term'),
-            ],
-        ];
-        break;
-    case 'categories' :
-        $args['tax_query'] = [
-            [
-                'taxonomy' => 'categories',
-                'field'    => 'slug',
-                'terms'    => get_query_var('term'),
-            ],
-        ];
-        break;
-}*/
-
 $query = new WP_Query($args); ?>
 
     <article class="archive">

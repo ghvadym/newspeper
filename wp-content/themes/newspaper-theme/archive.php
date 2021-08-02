@@ -10,15 +10,23 @@ $args = [
 ];
 
 /*Authors page*/
-/*$personId = $_GET['id'] ?? '';
+$personId = $_GET['id'] ?? '';
 if ($personId) {
     $args['meta_key'] = 'author_name';
     $args['meta_value'] = $personId;
-}*/
+}
 
 switch (get_query_var('taxonomy')) {
     case 'label' :
         $args['tax_query'] = [
+            [
+                'taxonomy' => 'label',
+                'operator' => 'EXISTS',
+            ],
+            [
+                'taxonomy' => 'categories',
+                'operator' => 'EXISTS',
+            ],
             [
                 'taxonomy' => 'label',
                 'field'    => 'slug',
@@ -28,6 +36,14 @@ switch (get_query_var('taxonomy')) {
         break;
     case 'categories' :
         $args['tax_query'] = [
+            [
+                'taxonomy' => 'label',
+                'operator' => 'EXISTS',
+            ],
+            [
+                'taxonomy' => 'categories',
+                'operator' => 'EXISTS',
+            ],
             [
                 'taxonomy' => 'categories',
                 'field'    => 'slug',
@@ -39,6 +55,14 @@ switch (get_query_var('taxonomy')) {
         $args['tax_query'] = [
             [
                 'taxonomy' => 'labels-newspapers',
+                'operator' => 'EXISTS',
+            ],
+            [
+                'taxonomy' => 'categories-newspapers',
+                'operator' => 'EXISTS',
+            ],
+            [
+                'taxonomy' => 'labels-newspapers',
                 'field'    => 'slug',
                 'terms'    => get_query_var('term'),
             ],
@@ -46,6 +70,14 @@ switch (get_query_var('taxonomy')) {
         break;
     case 'categories-newspapers' :
         $args['tax_query'] = [
+            [
+                'taxonomy' => 'labels-newspapers',
+                'operator' => 'EXISTS',
+            ],
+            [
+                'taxonomy' => 'categories-newspapers',
+                'operator' => 'EXISTS',
+            ],
             [
                 'taxonomy' => 'categories-newspapers',
                 'field'    => 'slug',
@@ -65,6 +97,8 @@ $query = new WP_Query($args); ?>
                     <?php get_template_part_var('templates/components/archive-posts', ['post' => $post]); ?>
                 <?php endwhile ?>
             </div>
+        <?php else: ?>
+            <?php _e('Coming Soon', 'newspaper') ?>
         <?php endif ?>
         <?php wp_reset_postdata() ?>
 
