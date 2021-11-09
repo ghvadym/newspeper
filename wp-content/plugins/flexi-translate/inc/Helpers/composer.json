@@ -1,0 +1,6 @@
+{
+    "require": {
+        "stichoza/google-translate-php": "^4.1",
+        "dejurin/php-google-translate-for-free": "^1.0"
+    }
+}
