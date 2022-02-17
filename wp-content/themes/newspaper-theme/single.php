@@ -7,9 +7,13 @@ $post = get_post();
         <?php if (have_posts()) : ?>
             <?php while (have_posts()) :the_post(); ?>
                 <div class="article__title">
-                    <h1><?php the_title() ?></h1>
+                    <h1>
+                        <?php the_title() ?>
+                    </h1>
                     <?php if (has_excerpt($post->ID)) : ?>
-                        <blockquote><?php echo '&#10077 ' . get_the_excerpt() . ' &#10077;' ?></blockquote>
+                        <blockquote>
+                            <?php echo '&#10077 ' . get_the_excerpt() . ' &#10077;' ?>
+                        </blockquote>
                     <?php endif; ?>
                 </div>
                 <div class="article__head">

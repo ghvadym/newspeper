@@ -3,7 +3,6 @@ $args = [
     'taxonomy' => ['label', 'labels-newspapers'],
     'hide_empty' => false,
 ];
-
 $terms = get_terms( $args );
 ?>
 

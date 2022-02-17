@@ -94,7 +94,6 @@ function speech() {
     if (!$id) return;
     $post = get_post($id);
     $content = $post->post_title;
-    //$plainString = strip_tags($content);
     $textEncode = rawurlencode($content);
 
     ob_start();

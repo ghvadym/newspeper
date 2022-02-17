@@ -15,12 +15,13 @@ $query = new WP_Query($args);
 
     <aside class="aside">
         <div class="filter__head">
-            <h2 class="filter__title"><?php _e('Use Filter', 'newspaper') ?></h2>
+            <h2 class="filter__title">
+                <?php _e('Use Filter', 'newspaper') ?>
+            </h2>
             <div class="filter__btn">
                 <?php get_template_part('/assets/icons/svg', 'pin') ?>
             </div>
         </div>
-
 
         <?php
         $data = [
