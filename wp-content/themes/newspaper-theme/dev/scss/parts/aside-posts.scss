@@ -1,0 +1,42 @@
+.aside {
+    @media (min-width: $laptop-resolution + 1) {
+        flex: 0 0 280px;
+    }
+
+    .post {
+        &__list {
+            @media (max-width: $laptop-resolution) {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-gap: 30px;
+            }
+
+            @media (max-width: $mobile-resolution) {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        &__item {
+            @media (min-width: $laptop-resolution + 1) {
+                &:not(:last-child) {
+                    margin-bottom: 30px;
+                }
+            }
+
+            @media (max-width: $mobile-resolution) {
+                max-width: 320px;
+                width: 100%;
+                margin: 0 auto;
+            }
+        }
+
+        &__title {
+            margin-bottom: 0;
+        }
+
+        &__content {
+            padding: 10px;
+        }
+    }
+}

@@ -1,0 +1,187 @@
+.single {
+    .article {
+        &__title {
+            padding: 30px 0;
+
+            h1 {
+                background: linear-gradient(90deg, rgba(55, 7, 53, 1) 15%, rgba(225, 26, 147, 1) 96%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+
+            }
+
+            blockquote {
+                max-width: 600px;
+                width: 100%;
+                font-size: 1.3rem;
+                display: block;
+                margin: 0 auto;
+                line-height: 1.5;
+                color: rgba(0, 0, 0, 0.8);
+            }
+        }
+
+        &__data {
+            .data__item {
+                margin-bottom: 20px;
+                font-weight: 500;
+
+                a {
+                    font-style: italic;
+                    color: rgba(0, 0, 0, 0.8);
+                    transition: all 0.3s;
+                    font-size: 1.2rem;
+
+                    &:hover {
+                        color: rgba(0, 0, 0, 0.5);
+                    }
+                }
+            }
+        }
+
+        &__content {
+            img {
+                @extend .img-contain;
+                max-height: 500px;
+                margin: 30px 0;
+            }
+        }
+
+        &.news {
+            .article__head {
+                min-height: 50vh;
+                width: 100%;
+                position: relative;
+                padding-bottom: 56.25%;
+                max-width: 100%;
+                overflow: hidden;
+                border-radius: 5px;
+
+                @media (max-width: $mobile-resolution) {
+                    min-height: 300px;
+                }
+
+                img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: 50% 20%;
+                }
+            }
+        }
+
+        &.authors {
+            margin: 0;
+
+            .article__head {
+                width: 200px;
+                height: 200px;
+                margin: 0 auto;
+                min-height: auto;
+                border-radius: 5px;
+                overflow: hidden;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: top;
+                }
+            }
+
+            .article__title {
+                padding: 20px 0 50px;
+
+                @media (max-width: $laptop-resolution-portrait) {
+                    padding: 20px 0;
+                }
+
+                h1 {
+                    margin: 0;
+                    background: linear-gradient(90deg, #101010 15%, #606060 96%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+            }
+
+            .article__news {
+                @media (min-width: $mobile-resolution) {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr 1fr;
+                    grid-gap: 30px;
+                }
+
+                @media (max-width: $laptop-resolution) {
+                    grid-template-columns: 1fr 1fr 1fr;
+                }
+
+                @media (max-width: $laptop-resolution-portrait) {
+                    grid-template-columns: 1fr 1fr;
+
+                    .post__item:not(:last-child) {
+                        margin-bottom: 30px;
+                    }
+                }
+            }
+
+            .author-posts {
+                text-align: center;
+                margin-top: 30px;
+
+                a {
+                    font-weight: 500;
+                    color: $color-white;
+                    font-size: 1rem;
+                    background: $color-black;
+                    padding: 10px 20px;
+                    border-radius: 3px;
+                    border: 2px solid $color-black;
+                    transition: all ease 0.3s;
+
+                    &:hover {
+                        background: $color-white;
+                        color: $color-black;
+                    }
+                }
+            }
+        }
+
+        &__speech {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 30px 0;
+            min-height: 60px;
+
+            .speech {
+                padding: 10px 20px;
+                background-color: black;
+                color: white;
+                text-align: center;
+                border-radius: 5px;
+                display: inline-block;
+                cursor: pointer;
+                max-height: 36px;
+            }
+
+            .speech-result {
+                border: 1px solid;
+                border-radius: 50px;
+            }
+        }
+    }
+
+    .aside {
+        .post__list {
+            position: sticky;
+            top: 100px;
+        }
+
+        .post__content {
+            padding: 10px;
+        }
+    }
+}
